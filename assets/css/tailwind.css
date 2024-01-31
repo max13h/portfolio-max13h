@@ -1,5 +1,5 @@
-@import url("./base/index");
-@import url("./components/index");
+@import url("../base/index");
+@import url("../components/index");
 
 @tailwind base;
 @tailwind components;
