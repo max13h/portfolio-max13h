@@ -1,6 +1,6 @@
 import Lenis from '@studio-freight/lenis'
 
-export const useLenisStore = defineStore("lenis", () => {
+export const useLenis = () => {
   const lenis = new Lenis()
 
   lenis.on('scroll', (e) => {
@@ -13,6 +13,4 @@ export const useLenisStore = defineStore("lenis", () => {
   }
 
   requestAnimationFrame(raf)
-
-  return { lenis }
-})
+}

@@ -44,12 +44,6 @@ onMounted(() => {
       delay: (el, i) => 50 * i,
       easing: 'easeOutBack'
     }, '+= 1000')
-
-  const { lenis } = useLenisStore()
-
-  lenis.on('scroll', (e) => {
-    console.log(e.dimensions);
-  })
 })
 </script>
 
