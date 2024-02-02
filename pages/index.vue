@@ -2,23 +2,15 @@
   <div class="relative">
     <Navbar />
     <Welcome />
-    <Background />
+    <!-- <Background /> -->
     <Projects />
   </div>
 </template>
 
 <script setup lang="ts">
-import Lenis from '@studio-freight/lenis'
-
 onMounted(() => {
-  const lenis = new Lenis()
+  const lenis = useLenisStore()
 
-  function raf(time) {
-    lenis.raf(time)
-    requestAnimationFrame(raf)
-  }
-
-  requestAnimationFrame(raf)
 })
 </script>
 
