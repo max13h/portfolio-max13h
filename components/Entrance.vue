@@ -14,7 +14,7 @@
     </div>
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
       <h1 class="text-light text-xl font-light" :class="{'overflow-hidden': hiddenOverflow}">
-        <span class="heading-pop-up inline-block text-center">Portfolio max13h 2024</span>
+        <span class="heading-pop-up inline-block text-center translate-y-full">Portfolio max13h 2024</span>
       </h1>
     </div>
   </div>
@@ -23,29 +23,32 @@
 <script setup lang="ts">
 const hiddenOverflow = ref(true)
 
-const emit = defineEmits(['completed'])
-
 onMounted(() => {
+  const gsap = useGsap()
   const gsapStore = useGsapStore()
 
-  gsapStore.gsap.timeline({onComplete: () => emit('completed')})
-    .from('.heading-pop-up', {
-      yPercent: 100,
-      duration: 0.5,
-      onComplete: () => {
-        hiddenOverflow.value = false
-      }
-    })
-    .to('.heading-pop-up', {
-      opacity: 0,
-      duration: 0.5,
-      delay: 1
-    })
-    .to('.entrance-line', {
-      stagger: 0.1,
-      xPercent: (index) => -100 * index - 200,
-      duration: 0.5
-    }, '-=0.1')
+  const entranceTL = () => {
+    return gsap.timeline({ onComplete: () => { return gsapStore.isEntrance = false }})
+      .to('.heading-pop-up', {
+        yPercent: -100,
+        duration: 0.5,
+        onComplete: () => {
+          hiddenOverflow.value = false
+        }
+      })
+      .to('.heading-pop-up', {
+        opacity: 0,
+        duration: 0.5,
+        delay: 1
+      })
+      .to('.entrance-line', {
+        stagger: 0.1,
+        xPercent: (index) => -100 * index - 200,
+        duration: 0.5
+      }, '-=0.1')
+  }
+
+  gsapStore.entranceTL = entranceTL
 })
 </script>
 

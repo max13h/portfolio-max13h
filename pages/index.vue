@@ -1,20 +1,27 @@
 <template>
   <div class="relative">
-    <!-- <Entrance v-if="isEntrance" @completed="isEntrance = false" /> -->
+    <Entrance v-if="gsapStore.isEntrance" />
     <!-- <Navbar /> -->
-    <Welcome />
-    <Projects />
+    <!-- <Welcome /> -->
+    <!-- <Projects /> -->
     <!-- <Background /> -->
   </div>
 </template>
 
 <script setup lang="ts">
-let isEntrance = ref(true)
+const gsapStore = useGsapStore()
 
 onMounted(() => {
-  const animeStore = useAnimeStore()
-
   useLenis()
+
+  const gsap = useGsap()
+
+  if(!gsapStore.entranceTL) {
+    throw new Error
+  }
+
+  gsap.timeline()
+    .add(gsapStore.entranceTL())
 })
 </script>
 

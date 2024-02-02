@@ -1,49 +1,45 @@
 <template>
   <div class="w-full h-screen overflow-hidden flex justify-center items-center">
     <h1 class="main-heading w-full text-center inline-block">
-        <span ref="letters1" class="">Hello,</span>
+        <span :ref="letters[0]" class="overflow-hidden">Hello,</span>
         <span class="flex flex-wrap justify-center">
-          <span ref="letters2" class="me-5">I'm </span>
-          <span ref="letters3">max13h</span>
+          <span :ref="letters[1]" class="me-12 overflow-hidden">I'm </span>
+          <span :ref="letters[2]" class="overflow-hidden">max13h</span>
         </span>
     </h1>
   </div>
 </template>
 
 <script setup lang="ts">
-const letters1 = ref()
-const letters2 = ref()
-const letters3 = ref()
+const letters = [ref(), ref(), ref()]
 
 onMounted(() => {
-  letters1.value.focus()
-  letters2.value.focus()
-  letters3.value.focus()
+  letters.map((el, index) => {
+    el.value.focus
+    el.value.innerHTML = el.value.textContent.replace(/\S/g, `<span class='letter inline-block ${index === 2 ? 'max13h' : ''}'>$&</span>`);
+  })
+  const { gsap } = useGsapStore()
+  const { isEntrance } = storeToRefs(useGsapStore())
 
-  letters1.value.innerHTML = letters1.value.textContent.replace(/\S/g, "<span class='letter inline-block'>$&</span>");
-  letters2.value.innerHTML = letters2.value.textContent.replace(/\S/g, "<span class='letter inline-block'>$&</span>");
-  letters3.value.innerHTML = letters3.value.textContent.replace(/\S/g, "<span class='letter max13h inline-block'>$&</span>");
-
-  const animeStore = useAnimeStore()
-
-  animeStore.timeline
-    .add({
-      targets: '.main-heading .letter',
-      opacity: {
-        value: [0, 1],
-        delay: (el: any, i: any) => 55 * i
-      },
-      translateY: ["1.1em", "-0.2"],
-      // rotate: {
-      //   value: () => { return `+=${useAnime.random(-8, 8)}` },
-      //   duration: '3000',
-      //   delay: 1000
-      // },
-      direction: 'normal',
-      duration: 700,
-      delay: (el, i) => 50 * i,
-      easing: 'easeOutBack'
-    }, '+= 1000')
+  watch(isEntrance, () => {
+    if(!isEntrance.value) {
+    gsap.timeline()
+      .from('.letter', {
+        yPercent: 100,
+        duration: 0.3,
+        stagger: 0.06
+      })
+      .from('.letter', {
+        opacity: 0,
+        duration: 0.3,
+        stagger: 0.06
+      }, '<0.2')
+      .to('.letter', {
+        rotate: () => `+=${useAnime.random(-8, 8)}`,
+        duration: 3,
+      }, '-=1')
+  }
+  })
 })
 </script>
 

@@ -1,8 +1,9 @@
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 export const useGsapStore = defineStore("gsap", () => {
-  gsap.registerPlugin(ScrollTrigger)
+  const entranceTL: globalThis.Ref<null | (() => gsap.core.Timeline)> = ref(null)
+  const isEntrance = ref(true)
 
-  return { gsap }
+  return {
+    entranceTL,
+    isEntrance,
+  }
 })
