@@ -3,7 +3,7 @@
     <Entrance v-if="gsapStore.isEntrance" />
     <Navbar />
     <Welcome />
-    <Aboutme />
+    <AboutMe />
     <!-- <Background /> -->
   </div>
 </template>
