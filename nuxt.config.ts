@@ -5,7 +5,8 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@hypernym/nuxt-anime',
     '@pinia/nuxt',
-    '@nuxt/image'
+    '@nuxt/image',
+    'nuxt-icon'
   ],
   anime: {
     provide: false,
