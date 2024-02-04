@@ -1,10 +1,9 @@
 <template>
   <div class="w-full h-screen overflow-hidden flex justify-center items-center">
     <h1 class="text-big1 w-full text-center inline-block">
-        <span :ref="letters[0]" class="">Hello,</span>
+        <span :ref="letters[0]" >Hello, I'm</span>
         <span class="flex flex-wrap justify-center">
-          <span :ref="letters[1]" class="me-12 ">I'm </span>
-          <span :ref="letters[2]" class="">max13h</span>
+          <span :ref="letters[1]" class="max13h relative">max13h</span>
         </span>
     </h1>
   </div>
@@ -13,7 +12,7 @@
 <script setup lang="ts">
 import { CustomEase } from "gsap/CustomEase"
 
-const letters = [ref(), ref(), ref()]
+const letters = [ref(), ref()]
 
 onMounted(() => {
   const gsap = useGsap()
@@ -44,7 +43,23 @@ onMounted(() => {
         duration: 0.5,
         delay: 0.6,
         stagger: 0.06,
-        onComplete: () => letters[2].value.classList.add('max13h')
+      }, '<')
+      .to('.max13h', {
+        overflow: 'hidden'
+      })
+      .to('html', {
+        '--display-circle': 'block'
+      }, '<')
+      .to('html', {
+        duration: 0.5,
+        '--bottom-circle': -50
+      })
+      .to('.max13h', {
+        fontFamily: 'farnhamtext-regularlfregular',
+      })
+      .to('html', {
+        duration: 0.5,
+        '--bottom-circle': 100
       }, '<')
 
   }
@@ -60,4 +75,18 @@ h1 {
 h1 .letter {
   display: inline-block;
 }
+
+.max13h::after {
+  content: '';
+  position: absolute;
+  bottom: var(--bottom-circle);
+  display: var(--display-circle);
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 100%;
+  width: calc(7rem + 50vw);
+  height: calc(7rem + 50vw);
+  @apply bg-light
+}
+
 </style>

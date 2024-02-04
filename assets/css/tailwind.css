@@ -49,43 +49,25 @@ font-weight: 600;
 }
 
 @font-face {
-  font-family: 'poppins';
-  src: url('../fonts/poppins-black-webfont.woff2') format('woff2'),
-       url('../fonts/poppins-black-webfont.woff') format('woff');
-  font-weight: 800 900;
+  font-family: 'farnhamtext-regularlfregular';
+  src: url('../fonts/farnhamtext-regularlf_regular-webfont.woff2') format('woff2'),
+       url('../fonts/farnhamtext-regularlf_regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
-@font-face {
-  font-family: 'poppins';
-  src: url('../fonts/poppins-bold-webfont.woff2') format('woff2'),
-       url('../fonts/poppins-bold-webfont.woff') format('woff');
-  font-weight: 700;
-}
-@font-face {
-font-family: 'poppins';
-src: url('../fonts/poppins-semibold-webfont.woff2') format('woff2'),
-     url('../fonts/poppins-semibold-webfont.woff') format('woff');
-font-weight: 500 600;
-}
-@font-face {
-  font-family: 'poppins';
-  src: url('../fonts/poppins-regular-webfont.woff2') format('woff2'),
-       url('../fonts/poppins-regular-webfont.woff') format('woff');
-  font-weight: 400;
-}
-@font-face {
-font-family: 'poppins';
-src: url('../fonts/poppins-extralight-webfont.woff2') format('woff2'),
-     url('../fonts/poppins-extralight-webfont.woff') format('woff');
-font-weight: 100 300;
+
+html {
+  --bottom-circle: 100%;
+  --display-circle: none
 }
 
 * {
-  @apply text-dark
+  @apply text-dark;
 }
 
 body {
-  font-family: poppins, sans-serif;
-  @apply bg-light
+  @apply bg-light;
+  font-family: luxeuno, sans-serif;
 }
 
 .bg-dark p,
