@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     '@hypernym/nuxt-anime',
     '@pinia/nuxt',
     '@nuxt/image',
-    'nuxt-icon'
+    'nuxt-icon',
+    'floating-vue/nuxt'
   ],
   anime: {
     provide: false,
