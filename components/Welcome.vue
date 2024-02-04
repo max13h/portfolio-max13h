@@ -51,14 +51,15 @@ onMounted(() => {
         '--display-circle': 'block'
       }, '<')
       .to('html', {
-        duration: 0.5,
+        duration: 0.4,
         '--bottom-circle': -50
-      })
+      }, '<')
       .to('.max13h', {
+        duration: 0.1,
         fontFamily: 'farnhamtext-regularlfregular',
       })
       .to('html', {
-        duration: 0.5,
+        duration: 0.4,
         '--bottom-circle': 100
       }, '<')
 
