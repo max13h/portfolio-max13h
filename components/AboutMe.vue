@@ -16,22 +16,26 @@
         <p class="h3-big text-nowrap text-center mt-32">Proficient in...</p>
         <div class="w-full flex justify-evenly items-center">
           <div class="backend flex flex-col items-center">
-            <p>Back-end development</p>
+            <p class="">Back-end development</p>
             <p>My technologies:</p>
             <div>
-              ruby
-              rubyonrails
-              postgres
+              <Icon name="vscode-icons:file-type-ruby" size="8rem" class="techno-icon w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32" />
+              <Icon name="simple-icons:rubyonrails" size="8rem" class="rails transition-all duration-300 w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32" />
+              <Icon name="logos:postgresql" size="8rem" class="techno-icon w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32" />
+              <Icon name="logos:nuxt-icon" size="8rem" class="techno-icon w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32" />
+              <Icon name="logos:nodejs-icon" size="8rem" class="techno-icon w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32" />
             </div>
           </div>
           <p>&</p>
           <div class="frontend">
-            <p>Front-end development</p>
+            <p class="">Front-end development</p>
             <p>My technologies:</p>
             <div>
-              javascript
-              vuejs
-              nuxtjs
+              <Icon name="logos:vue" size="8rem" class="techno-icon w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32" />
+              <Icon name="logos:javascript" size="8rem" class="techno-icon w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32" />
+              <Icon name="logos:typescript-icon" size="8rem" class="techno-icon w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32" />
+              <Icon name="vscode-icons:file-type-css" size="8rem" class="techno-icon w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32" />
+              <Icon name="logos:tailwindcss-icon" size="8rem" class="techno-icon w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32" />
             </div>
           </div>
         </div>
@@ -60,4 +64,18 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.techno-icon {
+  @apply transition-all duration-300;
+  filter: saturate(0);
+  opacity: 0.8;
+}
+
+.techno-icon:hover {
+  filter: none;
+  opacity: 1;
+}
+
+.rails:hover {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(30%) saturate(6016%) brightness(102%) contrast(141%);
+}
 </style>
