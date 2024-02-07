@@ -3,16 +3,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/tailwindcss',
-    '@hypernym/nuxt-anime',
     '@pinia/nuxt',
     '@nuxt/image',
     'nuxt-icon',
     'floating-vue/nuxt'
   ],
-  anime: {
-    provide: false,
-    composables: true
-  },
   pinia: {
     autoImports: [
       "defineStore"
