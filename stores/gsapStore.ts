@@ -10,6 +10,8 @@ export const useGsapStore = defineStore("gsap", () => {
 
   const aboutmeTL: globalThis.Ref<null | (() => gsap.core.Timeline)> = ref(null)
 
+  const myProjectsTL: globalThis.Ref<null | (() => gsap.core.Timeline)> = ref(null)
+
   return {
     entranceTL,
     isEntrance,
@@ -18,5 +20,6 @@ export const useGsapStore = defineStore("gsap", () => {
     aboutMeTextPartTL,
     aboutMeStackPartTL,
     aboutmeTL,
+    myProjectsTL,
   }
 })
