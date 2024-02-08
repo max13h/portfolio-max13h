@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxt/image',
     'nuxt-icon',
-    'floating-vue/nuxt'
   ],
   pinia: {
     autoImports: [
