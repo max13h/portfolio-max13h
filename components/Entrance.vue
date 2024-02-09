@@ -27,32 +27,27 @@
 import { gsap } from "gsap"
 
 const hiddenOverflow = ref(true)
-
 const gsapStore = useGsapStore()
 
 onMounted(() => {
-  const entranceTL = () => {
-    return gsap.timeline({ onComplete: () => { return gsapStore.isEntrance = false }})
-      .to('.heading-pop-up', {
-        yPercent: -100,
-        duration: 0.5,
-        onComplete: () => {
-          hiddenOverflow.value = false
-        }
-      })
-      .to('.heading-pop-up', {
-        opacity: 0,
-        duration: 0.5,
-        delay: 1
-      })
-      .to('.entrance-line', {
-        stagger: 0.1,
-        xPercent: (index) => -100 * index - 200,
-        duration: 0.5
-      }, '-=0.1')
-  }
-
-  gsapStore.entranceTL = entranceTL
+  gsap.timeline({ onComplete: () => { return gsapStore.isEntrance = false }})
+    .to('.heading-pop-up', {
+      yPercent: -100,
+      duration: 0.5,
+      onComplete: () => {
+        hiddenOverflow.value = false
+      }
+    })
+    .to('.heading-pop-up', {
+      opacity: 0,
+      duration: 0.5,
+      delay: 1
+    })
+    .to('.entrance-line', {
+      stagger: 0.1,
+      xPercent: (index) => -100 * index - 200,
+      duration: 0.5
+    }, '-=0.1')
 })
 </script>
 

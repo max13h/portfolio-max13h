@@ -26,89 +26,86 @@ onMounted(() => {
     splitLettersInHTML(el, 'letter')
   })
 
-  const welcomeTL = () => {
-    gsap.registerPlugin(CustomEase)
-    gsap.registerPlugin(ScrollTrigger)
-    return gsap.timeline()
-      .to('.letter', {
-        scrollTrigger: {
-          trigger: '.letter',
-          start: 'bottom center',
-          end: '+=300px',
-          scrub: 0.3,
-        },
-        yPercent: -200,
-        xPercent: (index, target) => {
-          const obj = {}
-          for (let i = 0; i < 9; i++) {
-            const value = -500 + (i * (1000 / 8));
-            obj[i] = value;
-          }
-          for (let i = 0; i < 7; i++) {
-            const value = -200 + (i * (400 / 5));
-            obj[i + 9] = value;
-          }
-          return obj[index]
-        },
-        opacity: 0
-      })
-      .to('.scroll-down', {
-        scrollTrigger: {
-          trigger: '.letter',
-          start: 'bottom center',
-          end: '+=300px',
-          scrub: 1,
-        },
-        yPercent: -500,
-        opacity: 0
-      })
-      .from('.letter', {
-        xPercent: 5000,
-        duration: 1,
-        stagger: 0.05,
-        ease: CustomEase.create("custom", "M0,0 C0.169,0.85 0.054,1.025 1,1 "),
-      })
-      .to('.letter', {
-        rotate: () => `-${Math.floor(Math.random() * 20  + 10)}`,
-        duration: 0.1,
-        delay: 0.3,
-        stagger: 0.06,
-      }, '<')
-      .to('.letter', {
-        rotate: () => `${Math.floor(Math.random() * 16 - 8)}`,
-        duration: 0.5,
-        delay: 0.6,
-        stagger: 0.06,
-      }, '<')
-      .to('.max13h', {
-        overflow: 'hidden'
-      })
-      .to('html', {
-        '--display-circle': 'block'
-      }, '<')
-      .to('html', {
-        duration: 0.4,
-        '--bottom-circle': -50
-      }, '<')
-      .to('.max13h', {
-        duration: 0.1,
-        fontFamily: 'farnhamtext-regularlfregular',
-      })
-      .to('html', {
-        duration: 0.4,
-        '--bottom-circle': 100,
-        onComplete: () => { gsapStore.isWelcomed = true }
-      }, '<')
-      .to('html', {
-        '--display-circle': 'none',
-        overflow: 'visible'
-      })
-      .to('.max13h', {
-        overflow: 'visible'
-      }, '<')
+  gsap.registerPlugin(CustomEase)
+  gsap.registerPlugin(ScrollTrigger)
 
-  }
-  gsapStore.welcomeTL = welcomeTL
+  gsap.timeline().delay(2.5)
+    .to('.letter', {
+      scrollTrigger: {
+        trigger: '.letter',
+        start: 'bottom center',
+        end: '+=300px',
+        scrub: 0.3,
+      },
+      yPercent: -200,
+      xPercent: (index, target) => {
+        const obj = {}
+        for (let i = 0; i < 9; i++) {
+          const value = -500 + (i * (1000 / 8));
+          obj[i] = value;
+        }
+        for (let i = 0; i < 7; i++) {
+          const value = -200 + (i * (400 / 5));
+          obj[i + 9] = value;
+        }
+        return obj[index]
+      },
+      opacity: 0
+    })
+    .to('.scroll-down', {
+      scrollTrigger: {
+        trigger: '.letter',
+        start: 'bottom center',
+        end: '+=300px',
+        scrub: 1,
+      },
+      yPercent: -500,
+      opacity: 0
+    })
+    .from('.letter', {
+      xPercent: 5000,
+      duration: 1,
+      stagger: 0.05,
+      ease: CustomEase.create("custom", "M0,0 C0.169,0.85 0.054,1.025 1,1 "),
+    })
+    .to('.letter', {
+      rotate: () => `-${Math.floor(Math.random() * 20  + 10)}`,
+      duration: 0.1,
+      delay: 0.3,
+      stagger: 0.06,
+    }, '<')
+    .to('.letter', {
+      rotate: () => `${Math.floor(Math.random() * 16 - 8)}`,
+      duration: 0.5,
+      delay: 0.6,
+      stagger: 0.06,
+    }, '<')
+    .to('.max13h', {
+      overflow: 'hidden'
+    })
+    .to('html', {
+      '--display-circle': 'block'
+    }, '<')
+    .to('html', {
+      duration: 0.4,
+      '--bottom-circle': -50
+    }, '<')
+    .to('.max13h', {
+      duration: 0.1,
+      fontFamily: 'farnhamtext-regularlfregular',
+    })
+    .to('html', {
+      duration: 0.4,
+      '--bottom-circle': 100,
+      onComplete: () => { gsapStore.isWelcomed = true }
+    }, '<')
+    .to('html', {
+      '--display-circle': 'none',
+      overflow: 'visible'
+    })
+    .to('.max13h', {
+      overflow: 'visible'
+    }, '<')
 })
 </script>
 

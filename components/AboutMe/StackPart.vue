@@ -1,26 +1,77 @@
 <template>
   <div class="t-mystack w-full flex flex-col items-center md:flex-row md:justify-evenly">
-    <div class="backend flex flex-col items-center">
+    <div class="flex flex-col items-center">
       <p class="t-backandfront text-big4 font-semibold">Back-end</p>
       <p class="t-backandfront text-big6 opacity-75 -translate-y-4">development</p>
-      <p class="text-base opacity-50 t-backandfront">My technologies:</p>
+      <p class="technologie text-base opacity-50">My technologies:</p>
 
       <div class="flex flex-wrap justify-evenly items-center max-w-72 sm:max-w-80 md:max-w-96 lg:max-w-md xl:max-w-lg">
 
-        <Popover v-for="(technologie, index) in backEndTechnologies" :key="index" v-slot="{ open }" class="relative m-2">
-          <PopoverButton>
-            <Icon :name="technologie.icon" size="8rem" class="technologie w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32" :class="{'technologie-active': open}" />
-          </PopoverButton>
-          <PopoverPanel class="absolute top-full left-1/2 -translate-x-1/2 mt-2 p-2 rounded-2xl z-10 w-screen max-w-64 bg-light text-center">
-            <NuxtLink :to="technologie.link" rel="external noopener" target="_blank" class="flex justify-center items-center">
-              {{ technologie.name }}
-              <Icon name="fluent:open-12-regular" class="ms-1"/>
-            </NuxtLink>
-            <p class="font-thin text-sm text-dark">{{ technologie.title }}</p>
+        <div v-for="(technologie, index) in backEndTechnologies" :key="index" class="relative m-2">
+          <Icon
+            :name="technologie.icon"
+            size="8rem"
+            class="technologie w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32"
+            :class="{
+              'technologie-active': modalOpened === technologie.name,
+              'technologie-rails': technologie.name === 'Ruby on Rails',
+              'technologie-rails-active': modalOpened === 'Ruby on Rails' && technologie.name === 'Ruby on Rails',
+           }"
+            @click="openModal(technologie.name)" />
 
-            <q class="italic opacity-50 max-w-64 inline-block mt-4">{{ technologie.quote }}</q>
-          </PopoverPanel>
-        </Popover>
+          <TransitionRoot appear :show="modalOpened === technologie.name">
+            <Dialog @close="closeModal" class="relative z-10">
+              <TransitionChild
+                as="div"
+                enter="duration-300 ease-out"
+                enter-from="opacity-0"
+                enter-to="opacity-100"
+                leave="duration-200 ease-in"
+                leave-from="opacity-100"
+                leave-to="opacity-0"
+              >
+                <div class="fixed inset-0 bg-black/25" />
+              </TransitionChild>
+
+              <div class="fixed inset-0 overflow-y-auto">
+                <div
+                  class="flex min-h-full items-center justify-center p-4 text-center"
+                >
+                  <TransitionChild
+                    as="div"
+                    enter="duration-300 ease-out"
+                    enter-from="opacity-0 scale-95"
+                    enter-to="opacity-100 scale-100"
+                    leave="duration-200 ease-in"
+                    leave-from="opacity-100 scale-100"
+                    leave-to="opacity-0 scale-95"
+                  >
+                    <DialogPanel class="bg-light p-4 rounded-2xl">
+                      <NuxtLink :to="technologie.link" rel="external noopener" target="_blank" class="flex justify-center items-center font-bold">
+                        {{ technologie.name }}
+                        <Icon name="fluent:open-12-regular" class="ms-1"/>
+                      </NuxtLink>
+                      <p class="font-thin text-sm text-dark">{{ technologie.title }}</p>
+                      <DialogDescription>
+                        <q class="italic opacity-50 max-w-64 inline-block mt-4">{{ technologie.quote }}</q>
+                      </DialogDescription>
+                      <div class="mt-4">
+                        <button
+                          type="button"
+                          class="inline-flex justify-center rounded-md border border-transparent bg-gray-300 hover:opacity-90 px-4 py-2 text-sm font-medium"
+                          @click="closeModal"
+                        >
+                          Close
+                        </button>
+                      </div>
+                    </DialogPanel>
+                  </TransitionChild>
+                </div>
+              </div>
+            </Dialog>
+          </TransitionRoot>
+        </div>
+
       </div>
     </div>
 
@@ -29,23 +80,73 @@
     <div class="frontend flex flex-col items-center">
       <p class="t-backandfront text-big4 font-semibold">Front-end</p>
       <p class="t-backandfront text-big6 opacity-75 -translate-y-4">development</p>
-      <p class="text-base opacity-50 t-backandfront">My technologies:</p>
+      <p class="technologie text-base opacity-50">My technologies:</p>
       <div class="flex flex-wrap justify-evenly items-center max-w-72 sm:max-w-80 md:max-w-96 lg:max-w-md xl:max-w-lg">
 
-        <Popover v-for="(technologie, index) in frontEndTechnologies" :key="index" v-slot="{ open }" class="relative m-2">
-          <PopoverButton>
-            <Icon :name="technologie.icon" size="8rem" class="technologie w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32" :class="{'technologie-active': open}" />
-          </PopoverButton>
-          <PopoverPanel class="absolute top-full left-1/2 -translate-x-1/2 mt-2 p-2 rounded-2xl z-10 w-screen max-w-64 bg-light text-center">
-            <NuxtLink :to="technologie.link" rel="external noopener" target="_blank" class="flex justify-center items-center">
-              {{ technologie.name }}
-              <Icon name="fluent:open-12-regular" class="ms-1"/>
-            </NuxtLink>
-            <p class="font-thin text-sm text-dark">{{ technologie.title }}</p>
+        <div v-for="(technologie, index) in frontEndTechnologies" :key="index" class="relative m-2">
+          <Icon
+            :name="technologie.icon"
+            size="8rem"
+            class="technologie w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32"
+            :class="{
+              'technologie-active': modalOpened === technologie.name,
+              'technologie-rails': technologie.name === 'Ruby on Rails',
+              'technologie-rails-active': modalOpened === 'Ruby on Rails' && technologie.name === 'Ruby on Rails',
+           }"
+            @click="openModal(technologie.name)" />
 
-            <q class="italic opacity-50 max-w-64 inline-block mt-4">{{ technologie.quote }}</q>
-          </PopoverPanel>
-        </Popover>
+          <TransitionRoot appear :show="modalOpened === technologie.name">
+            <Dialog @close="closeModal" class="relative z-10">
+              <TransitionChild
+                as="div"
+                enter="duration-300 ease-out"
+                enter-from="opacity-0"
+                enter-to="opacity-100"
+                leave="duration-200 ease-in"
+                leave-from="opacity-100"
+                leave-to="opacity-0"
+              >
+                <div class="fixed inset-0 bg-black/25" />
+              </TransitionChild>
+
+              <div class="fixed inset-0 overflow-y-auto">
+                <div
+                  class="flex min-h-full items-center justify-center p-4 text-center"
+                >
+                  <TransitionChild
+                    as="div"
+                    enter="duration-300 ease-out"
+                    enter-from="opacity-0 scale-95"
+                    enter-to="opacity-100 scale-100"
+                    leave="duration-200 ease-in"
+                    leave-from="opacity-100 scale-100"
+                    leave-to="opacity-0 scale-95"
+                  >
+                    <DialogPanel class="bg-light p-4 rounded-2xl">
+                      <NuxtLink :to="technologie.link" rel="external noopener" target="_blank" class="flex justify-center items-center font-bold">
+                        {{ technologie.name }}
+                        <Icon name="fluent:open-12-regular" class="ms-1"/>
+                      </NuxtLink>
+                      <p class="font-thin text-sm text-dark">{{ technologie.title }}</p>
+                      <DialogDescription>
+                        <q class="italic opacity-50 max-w-64 inline-block mt-4">{{ technologie.quote }}</q>
+                      </DialogDescription>
+                      <div class="mt-4">
+                        <button
+                          type="button"
+                          class="inline-flex justify-center rounded-md border border-transparent bg-gray-300 hover:opacity-90 px-4 py-2 text-sm font-medium"
+                          @click="closeModal"
+                        >
+                          Close
+                        </button>
+                      </div>
+                    </DialogPanel>
+                  </TransitionChild>
+                </div>
+              </div>
+            </Dialog>
+          </TransitionRoot>
+        </div>
 
       </div>
     </div>
@@ -55,10 +156,8 @@
 <script setup lang="ts">
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
+import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle, DialogDescription } from '@headlessui/vue'
 
-const isActive = ref('')
-const gsapStore = useGsapStore()
 const backEndTechnologies = [
   {
     name: 'Ruby',
@@ -93,11 +192,10 @@ const backEndTechnologies = [
     icon: 'logos:nodejs-icon',
     link: 'https://nodejs.org/en',
     title: 'JavaScript runtime environment',
-    quote: 'I became acquainted with Node after learning JavaScript and experimenting with Nuxt server-side rendering.'
+    quote: 'I became acquainted with Node after learning JavaScript and experimenting with Nuxt server-side rendering and API building.'
   }
   // Add the remaining technologies following the same pattern
-];
-
+]
 const frontEndTechnologies = [
   {
     name: 'Vue',
@@ -136,37 +234,43 @@ const frontEndTechnologies = [
   }
 ]
 
+const modalOpened = ref('')
+function closeModal() {
+  modalOpened.value = ''
+}
+function openModal(technologie: string) {
+  modalOpened.value = technologie
+}
+
 onMounted(() => {
-    const aboutMeStackPartTL = () => {
-    gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger)
 
-    return gsap.timeline()
-      .from('.t-backandfront', {
-        scrollTrigger: {
-          trigger: '.t-toppart',
-          start: 'bottom center',
-          end: '+=100',
-          scrub: 1,
-        },
-        filter: 'blur(10px)',
-        opacity: 0,
-        scale: 0
-      })
-      .from('.t-stack-icons', {
-        scrollTrigger: {
-          trigger: '.t-stack-icons',
-          markers: true,
-          start: '-100px center',
-          end: '+=0px',
-          scrub: 3
-        },
-        filter: 'blur(10px)',
-        stagger: 0.2,
-        opacity: 0
-      })
-  }
-
-  gsapStore.aboutMeStackPartTL = aboutMeStackPartTL
+  gsap.timeline()
+    .from('.t-backandfront', {
+      scrollTrigger: {
+        trigger: '.t-toppart',
+        start: 'bottom center',
+        end: '+=100',
+        scrub: 1,
+      },
+      filter: 'blur(10px)',
+      opacity: 0,
+      scale: 0
+    })
+    .from('.technologie', {
+      scrollTrigger: {
+        trigger: '.technologie',
+        markers: true,
+        start: '-100px center',
+        end: '+=0px',
+        scrub: true
+      },
+      opacity: (index, target) => {
+        console.log(index);
+        console.log(target);
+        return 0
+      }
+    })
 })
 </script>
 
@@ -183,6 +287,22 @@ onMounted(() => {
 }
 .technologie-active {
   filter: none;
+  opacity: 1;
+}
+
+.technologie-rails {
+  @apply transition-all duration-500;
+  filter: brightness(0%) saturate(100%) invert(100%) sepia(0%) saturate(0%) brightness(0%) contrast(0%);
+  opacity: 0.8;
+  cursor: pointer;
+}
+.technologie-rails:hover {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(84%) saturate(5919%) brightness(73%) contrast(120%);
+  opacity: 1;
+}
+
+.technologie-rails-active {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(84%) saturate(5919%) brightness(73%) contrast(120%);
   opacity: 1;
 }
 </style>

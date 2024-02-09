@@ -16,7 +16,7 @@
     ">
       <p class="t-mynameis mix-blend-difference inline-block text-big3 text-nowrap text-end w-full">
         My name is <br/>
-        <span class="font-bold tracking-widest">Maxime</span>
+        <span class="font-bold tracking-widest text-light">Maxime</span>
       </p>
       <div class="
         t-imageofme
@@ -50,88 +50,83 @@
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
-const gsapStore = useGsapStore()
 const webdeveloperLetters = ref(null)
 
 onMounted(() => {
-  const aboutMeTextPartTL = () => {
-    gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger)
 
-    splitLettersInHTML(webdeveloperLetters, 't-webdeveloper-letters')
+  splitLettersInHTML(webdeveloperLetters, 't-webdeveloper-letters')
 
-    return gsap.timeline()
-      .from('.t-mynameis', {
-        scrollTrigger: {
-          trigger: '#aboutme',
-          start: '-500% center',
-          end: 'bottom center',
-          scrub: 1,
-        },
-        opacity: 0,
-        filter: "blur(10px)",
-        xPercent: 10,
-        yPercent: -300,
-      })
-      .from('.t-imageofme', {
-        scrollTrigger: {
-          trigger: '#aboutme',
-          start: '-500% center',
-          end: 'bottom center',
-          scrub: 1,
-        },
-        opacity: 0,
-        yPercent: -1000,
-        filter: "blur(10px)",
-      })
-      .from('.t-imajunior', {
-        scrollTrigger: {
-          trigger: '.t-imajunior',
-          start: '-100px center',
-          end: '+=200',
-          scrub: 1,
-        },
-        opacity: 0,
-        filter: "blur(10px)",
-      })
-      .from('.t-webdeveloper-letters', {
-        scrollTrigger: {
-          trigger: '.t-imajunior',
-          start: '-50px center',
-          end: '+=200',
-          scrub: 1.5,
-        },
-        x: (index, target) => {
-          const obj = {}
-          for (let i = 0; i <= 11; i++) {
-            obj[i] = 500 - (i / 11) * 1000;
-          }
-          return `${obj[index]}%`
-        },
-        filter: 'blur(10px)',
-      })
-      .from('.t-webdeveloper', {
-        scrollTrigger: {
-          trigger: '.t-imajunior',
-          start: 'top center',
-          end: '+=100',
-          scrub: 1,
-        },
-        opacity: 0
-      })
-      .from('.t-proficientin', {
-        scrollTrigger: {
-          trigger: '.t-proficientin',
-          start: '-100px center',
-          end: '+=100',
-          scrub: 1,
-        },
-        yPercent: -200,
-        filter: 'blur(10px)',
-        opacity: 0
-      })
-  }
-
-  gsapStore.aboutMeTextPartTL = aboutMeTextPartTL
+  gsap.timeline()
+    .from('.t-mynameis', {
+      scrollTrigger: {
+        trigger: '#aboutme',
+        start: '-500% center',
+        end: 'bottom center',
+        scrub: 1,
+      },
+      opacity: 0,
+      filter: "blur(10px)",
+      xPercent: 10,
+      yPercent: -300,
+    })
+    .from('.t-imageofme', {
+      scrollTrigger: {
+        trigger: '#aboutme',
+        start: '-500% center',
+        end: 'bottom center',
+        scrub: 1,
+      },
+      opacity: 0,
+      yPercent: -1000,
+      filter: "blur(10px)",
+    })
+    .from('.t-imajunior', {
+      scrollTrigger: {
+        trigger: '.t-imajunior',
+        start: '-100px center',
+        end: '+=200',
+        scrub: 1,
+      },
+      opacity: 0,
+      filter: "blur(10px)",
+    })
+    .from('.t-webdeveloper-letters', {
+      scrollTrigger: {
+        trigger: '.t-imajunior',
+        start: '-50px center',
+        end: '+=200',
+        scrub: 1.5,
+      },
+      x: (index, target) => {
+        const obj = {}
+        for (let i = 0; i <= 11; i++) {
+          obj[i] = 500 - (i / 11) * 1000;
+        }
+        return `${obj[index]}%`
+      },
+      filter: 'blur(10px)',
+    })
+    .from('.t-webdeveloper', {
+      scrollTrigger: {
+        trigger: '.t-imajunior',
+        start: 'top center',
+        end: '+=100',
+        scrub: 1,
+      },
+      opacity: 0
+    })
+    .from('.t-proficientin', {
+      scrollTrigger: {
+        trigger: '.t-proficientin',
+        start: '-100px center',
+        end: '+=100',
+        scrub: 1,
+      },
+      yPercent: -200,
+      filter: 'blur(10px)',
+      opacity: 0
+    })
 })
 </script>
 

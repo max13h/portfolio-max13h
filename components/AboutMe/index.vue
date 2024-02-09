@@ -6,54 +6,15 @@
         <AboutMeTextPart />
         <AboutMeStackPart />
       </div>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum perspiciatis modi cumque laboriosam similique minus aliquam magni facere, minima dolor doloremque placeat nostrum reprehenderit odio voluptatem quos iste consectetur esse? Sapiente voluptas veniam eum labore veritatis laboriosam suscipit a iste nobis voluptatem, est asperiores dolor quibusdam natus recusandae architecto facere ducimus adipisci repellat exercitationem modi maxime amet. Beatae quidem hic, architecto expedita ratione modi error vel repudiandae optio ipsum. Maiores quasi ut, nemo voluptas debitis, amet sed dolorem blanditiis aut, dicta eum officiis recusandae quisquam obcaecati sequi similique soluta nesciunt veniam? Sint iusto ipsum hic reprehenderit omnis odit labore adipisci perspiciatis illum, nostrum id, perferendis repellendus error corrupti? Beatae mollitia magni facere sequi temporibus pariatur minima officia inventore quo distinctio labore placeat velit rem ullam, dicta maxime? Veniam perferendis non atque impedit, accusamus doloribus, eaque, autem excepturi iusto voluptate enim in eveniet aliquam voluptatum laudantium fugit. Impedit corporis esse quia, maiores accusamus dicta. Voluptatibus deleniti officia, nesciunt officiis ipsa fugit quod facilis sequi maxime ullam fuga eaque? Eaque animi laboriosam laudantium! Dolores itaque veniam commodi sint. Molestiae illo quia placeat quibusdam quos nostrum recusandae rerum aliquam et. Non, itaque, a fugiat temporibus harum id nihil corporis reprehenderit quasi sint odit maiores, rem excepturi dolores. Harum incidunt et quas eligendi perspiciatis autem facilis expedita odio enim! Voluptatum quis tenetur dolorum quisquam officiis nihil quasi dolores veritatis, nam sunt ratione. Perspiciatis accusantium voluptates quasi eos minima dicta eum officiis! Omnis atque ducimus aut magni iusto illo ipsa non laudantium incidunt maxime, sequi quas alias officiis eos dolore, autem iure. Hic expedita sit sequi atque, eius asperiores! Ut error placeat delectus voluptatum quasi, blanditiis illum temporibus at debitis cum incidunt harum. Sequi quo, et similique veritatis, vel consequuntur quos deleniti mollitia odio ipsam fuga, eum voluptates nulla dolorum ab asperiores pariatur sunt maiores animi exercitationem. Fuga aut pariatur dignissimos aperiam odit. Esse impedit reprehenderit soluta, culpa laborum provident sit fugiat consequuntur obcaecati iste facere consequatur similique eius eaque aliquam sunt quae corporis eligendi quibusdam. Molestias, sunt omnis. Deserunt veniam assumenda aperiam tenetur, laboriosam consectetur possimus dolorem deleniti corporis explicabo reprehenderit? Neque, voluptas? Sapiente dolore quia alias excepturi ipsa, atque et architecto? Maiores, eligendi a qui eveniet nobis totam? Aspernatur quae itaque repellendus tempora ducimus vel dignissimos blanditiis iure libero reprehenderit quas sit eius, tempore dolore explicabo nisi veniam ullam repellat dolorum provident soluta maxime minus. Temporibus, nemo dolorem? Porro, minima reprehenderit est obcaecati consectetur quam maiores officiis quasi provident impedit quis ex harum dolores non quidem eum? Adipisci ipsam vitae fugit dolor cumque iure aut odio ex nesciunt dolorum distinctio a natus quis ad harum eius cum sit, saepe, quasi dicta. Nihil, deleniti sapiente numquam obcaecati temporibus recusandae accusantium et veniam officia a fugit, corrupti unde voluptatem voluptatibus dicta fuga tempore at reiciendis! Tempora minima, cum beatae doloremque ea aperiam aspernatur perferendis maxime, officiis ut pariatur eos fuga illum itaque laborum nulla obcaecati! Eos dignissimos similique natus modi pariatur iure magni molestias. Dolorum incidunt, tempora commodi magni facere debitis quasi accusantium provident, quas dolor rem facilis ipsam libero corporis quidem fugit fugiat asperiores tenetur veniam modi, est deleniti enim unde. Ipsum repellat quia dolore, officia optio impedit velit perferendis soluta aspernatur, recusandae ex aut, nemo quas atque! Corporis nemo nam vel deserunt tempore maiores exercitationem sed mollitia, unde nesciunt architecto laboriosam autem adipisci dicta blanditiis iste fugiat eveniet eligendi ad cupiditate pariatur, vitae provident. Laudantium aliquam corrupti quibusdam beatae sequi nesciunt, fugit mollitia, sit perspiciatis dolore adipisci. Molestias rem eaque ea mollitia. Et pariatur vitae non esse eius veniam, magnam quis autem expedita quisquam iusto omnis iste porro molestias nemo ipsa maiores. Quas praesentium voluptate eligendi minima hic necessitatibus! Laborum perferendis est ab. Qui in perferendis voluptatem praesentium error aperiam accusamus ipsum libero quia! Magnam voluptatem nulla, necessitatibus eum impedit porro sequi animi. Quos eum eaque veniam recusandae odit, assumenda consectetur. Nisi incidunt nesciunt, minus consectetur, consequatur, ducimus nemo beatae vitae provident error laudantium. Quisquam labore recusandae voluptate rem provident ipsa totam. Consectetur iusto, adipisci officiis amet nobis, unde sit aspernatur inventore temporibus maiores consequatur nisi! Ipsa ab, nemo nam, eveniet dolorum laboriosam voluptatem ex rerum eligendi repellat cum eius dolorem, a porro aspernatur mollitia. Tempore, qui, accusamus officiis, dignissimos ratione voluptatem a recusandae eligendi in non magnam vitae quidem veniam officia quis deleniti? Illum facere sunt eos eveniet impedit cumque, quam aperiam maxime consequatur adipisci? Aspernatur quae architecto nostrum, repellendus explicabo iure facilis voluptates magnam quod in dolorum magni repudiandae modi dolores autem? Dicta repellendus animi, mollitia sed fugiat doloribus. Dolor error totam nemo fugiat quo eligendi magni eos iste doloribus facere labore voluptates inventore tenetur similique sint repellat ab omnis cupiditate corporis, placeat deleniti ipsam exercitationem odit sapiente! Nesciunt recusandae, assumenda vero perspiciatis dicta quaerat quos fugiat sed. Sint pariatur distinctio maiores voluptates ipsum similique. Culpa quia consectetur, modi cum quam pariatur. Deleniti in nobis commodi, ex, earum asperiores praesentium repellat doloremque voluptatem voluptas quidem quasi officia, quo veniam! Eligendi nesciunt in quisquam iste ea laborum id adipisci dignissimos omnis magni? Illum rerum, ducimus ex ab officiis quasi eligendi sequi consequatur veniam dicta voluptatem delectus sint consequuntur vitae laborum soluta recusandae est officia fugiat quod odit expedita dolor. Molestiae dolor repudiandae earum itaque amet voluptatum unde nemo qui officia voluptatibus eius tempora incidunt expedita beatae adipisci quas voluptas autem, nulla esse iure, enim quisquam sit corrupti fugit. Libero debitis, aliquid obcaecati, non laboriosam velit magnam assumenda autem, doloremque tenetur ut est culpa accusamus quae asperiores repudiandae iure dolores? Quidem quod amet rem repellendus sed quis harum hic blanditiis assumenda obcaecati totam ab eligendi, dolorum qui perspiciatis. Consequatur nesciunt harum, temporibus optio, similique, ipsam distinctio maiores ipsum nihil impedit molestiae dolorem. Ex pariatur similique corrupti, mollitia error numquam quis voluptates sit, in corporis repudiandae consequuntur illum cumque. Perspiciatis deleniti fugiat praesentium totam unde iusto libero accusantium omnis, adipisci atque nemo eius corrupti sit tempore repellendus facilis numquam dolorum sint ea placeat nesciunt, quibusdam officiis dolorem? Ut adipisci eligendi similique fuga perspiciatis soluta reprehenderit expedita est, voluptatum atque quo suscipit facere quibusdam. Velit.
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { gsap } from "gsap"
-
-const gsapStore = useGsapStore()
-
-onMounted(() => {
-  gsapStore.aboutmeTL = () => {
-    if(!gsapStore.aboutMeTextPartTL || !gsapStore.aboutMeStackPartTL) {
-      throw new Error
-    }
-    return gsap.timeline().add(gsapStore.aboutMeTextPartTL()).add(gsapStore.aboutMeStackPartTL())
-  }
-})
 </script>
 
 <style scoped>
-.techno-icon {
-  @apply transition-all duration-500;
-  filter: saturate(0);
-  opacity: 0.8;
-  cursor: pointer;
-}
-.techno-icon:hover {
-  filter: none;
-  opacity: 1;
-}
-.techno-icon-active {
-  filter: none;
-  opacity: 1;
-}
-
-.techno-icon-rails {
-  @apply transition-all duration-500;
-  filter: brightness(0%) saturate(100%) invert(100%) sepia(0%) saturate(0%) brightness(0%) contrast(0%);
-  opacity: 0.8;
-  cursor: pointer;
-}
-.techno-icon-rails:hover {
-  filter: brightness(0) saturate(100%) invert(20%) sepia(84%) saturate(5919%) brightness(73%) contrast(120%);
-  opacity: 1;
-}
-
-.techno-icon-rails-active {
-  filter: brightness(0) saturate(100%) invert(20%) sepia(84%) saturate(5919%) brightness(73%) contrast(120%);
-  opacity: 1;
-}
 </style>
