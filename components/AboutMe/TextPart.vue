@@ -55,7 +55,7 @@ const webdeveloperLetters = ref(null)
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
-  splitLettersInHTML(webdeveloperLetters, 't-webdeveloper-letters')
+  splitLettersInHTML(webdeveloperLetters, 't-webdeveloper-letters text-light')
 
   gsap.timeline()
     .from('.t-mynameis', {

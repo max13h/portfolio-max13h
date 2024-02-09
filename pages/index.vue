@@ -4,9 +4,6 @@
     <Navbar />
     <Welcome />
     <AboutMe />
-    <div>
-      lorem1000
-    </div>
     <!-- <MyProjects /> -->
   </div>
 </template>

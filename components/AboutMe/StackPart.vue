@@ -71,7 +71,6 @@
             </Dialog>
           </TransitionRoot>
         </div>
-
       </div>
     </div>
 
@@ -147,7 +146,6 @@
             </Dialog>
           </TransitionRoot>
         </div>
-
       </div>
     </div>
   </div>
@@ -260,16 +258,11 @@ onMounted(() => {
     .from('.technologie', {
       scrollTrigger: {
         trigger: '.technologie',
-        markers: true,
         start: '-100px center',
         end: '+=0px',
         scrub: true
       },
-      opacity: (index, target) => {
-        console.log(index);
-        console.log(target);
-        return 0
-      }
+      opacity: 0,
     })
 })
 </script>
