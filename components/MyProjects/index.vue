@@ -77,7 +77,7 @@
 
             <div class="fixed inset-0 overflow-y-auto">
               <div
-                class="flex min-h-full items-center justify-center p-4 text-center"
+                class="flex min-h-full items-center justify-center p-4"
               >
                 <TransitionChild
                   as="div"
@@ -88,11 +88,11 @@
                   leave-from="opacity-100 scale-100"
                   leave-to="opacity-0 scale-95"
                 >
-                  <DialogPanel class="bg-dark p-4 rounded-2xl">
+                  <DialogPanel class="bg-dark p-8 rounded-2xl h-[90vh] w-[90vw]">
                     <h3 class="text-light text-big3">{{ project.name }}</h3>
-                      <p>{{ project.description }}</p>
-                    <div>
-                      <NuxtImg v-for="(image, imgIndex) in project.images" :key="imgIndex" :src="project.images[imgIndex]" />
+                    <p class="text-big6">{{ project.description }}</p>
+                    <div class="flex overflow-x-scroll">
+                      <NuxtImg v-for="(image, imgIndex) in project.images" :key="imgIndex" :src="project.images[imgIndex]" class="mx-4" />
                     </div>
                   </DialogPanel>
                 </TransitionChild>
@@ -121,7 +121,7 @@ const projects = [
   {
     name: 'The Favorite',
     mainImage: 'https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/competition.png',
-    description: "The mental load is doubled when it's shared with the other parents and relationships deteriorate due to the tensions created by the organization. \nThe Favorite offers a humorous take on the burden of parenthood. Parents work as a real team, while having fun competing against each other. \nLink the the presentation video:\n https://www.youtube.com/watch?v=HKW5yFXF45Q",
+    description: "My The Favorite offers a humorous take on the burden of parenthood. Parents work as a real team, while having fun competing against each other.",
     images: [
       "https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/root.png",
       "https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/home_tasks.png",
