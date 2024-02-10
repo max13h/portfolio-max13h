@@ -1,18 +1,18 @@
 <template>
   <div>
-    <div id="aboutme" class="w-full h-16 bg-dark rounded-b-[8vw] relative">
+    <div class="divider-block-md bg-dark"></div>
+    <div class="t-heading relative">
       <h2 class="
-        test
-        inline-block
+      ms-4
         text-big2
         mix-blend-difference
         text-light
         font-medium
-        absolute
-        -bottom-12
-        text-center
-        leading-8
-      ">Discover my projects</h2>
+      ">
+        Discover my
+        <br>
+        projects
+      </h2>
     </div>
 
     <div
@@ -112,8 +112,6 @@
 import { gsap } from "gsap"
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle, DialogDescription } from '@headlessui/vue'
 
-const gsapStore = useGsapStore()
-
 const projects = [
   {
     name: 'The Favorite',
@@ -154,15 +152,17 @@ function openModal(technologie: string) {
 }
 
 onMounted(() => {
-  gsapStore.myProjectsTL = () => {
-    return gsap.timeline()
-      .to('.test', {
-        x: 1000
-      })
-  }
+  // gsap.timeline()
+  //   .to('.test', {
+  //     x: 1000
+  //   })
 })
+
 </script>
 
 <style scoped>
-
+.t-heading:after {
+  content: '';
+  @apply bg-dark absolute top-0 left-0 rounded-b-3xl w-full h-[26%] -z-10
+}
 </style>
