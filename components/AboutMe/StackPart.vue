@@ -9,7 +9,7 @@
         </p>
       </div>
 
-      <div class="t-group-backend-technologies bg-light rounded-b-3xl w-full h-full p-4 pt-5 -translate-y-[2px]">
+      <div class="t-group-backend-technologies bg-light rounded-b-3xl w-full max-w-[90vw] h-full p-4 pt-5 -translate-y-[2px]">
         <div class="flex flex-wrap justify-evenly mt-4 items-center max-w-72 sm:max-w-80 md:max-w-96 lg:max-w-md xl:max-w-lg ">
 
           <div v-for="(technologie, index) in backEndTechnologies" :key="index" class="relative m-2">
@@ -100,7 +100,7 @@
         </p>
       </div>
 
-      <div class="t-group-frontend-technologies bg-light rounded-b-3xl w-full h-full p-4 pt-5 -translate-y-[2px]">
+      <div class="t-group-frontend-technologies bg-light rounded-b-3xl w-full max-w-[90vw] h-full p-4 pt-5 -translate-y-[2px]">
         <div class="flex flex-wrap justify-evenly mt-4 items-center max-w-72 sm:max-w-80 md:max-w-96 lg:max-w-md xl:max-w-lg ">
 
           <div v-for="(technologie, index) in frontEndTechnologies" :key="index" class="relative m-2">
