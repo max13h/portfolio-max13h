@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="divider-block-md bg-dark"></div>
-    <div class="t-heading relative">
+    <div class="t-heading relative leading-none">
       <h2 class="
       ms-4
         text-big2
@@ -17,7 +17,6 @@
 
     <div
       class="
-        mt-24
         flex
         flex-col
         items-center
@@ -64,7 +63,7 @@
         <h3 class="transition-all group-hover:scale-105   absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-big5 text-light w-full text-center">{{ project.name }}</h3>
 
         <TransitionRoot appear :show="modalOpened === project.name">
-          <Dialog @close="closeModal" class="relative z-10">
+          <Dialog @close="closeModal" class="relative z-[400]">
             <TransitionChild
               as="div"
               enter="duration-300 ease-out"
@@ -74,7 +73,7 @@
               leave-from="opacity-100"
               leave-to="opacity-0"
             >
-              <div class="fixed inset-0 bg-black/25" />
+              <div class="fixed inset-0 bg-light/50" />
             </TransitionChild>
 
             <div class="fixed inset-0 overflow-y-auto">
@@ -90,11 +89,20 @@
                   leave-from="opacity-100 scale-100"
                   leave-to="opacity-0 scale-95"
                 >
-                  <DialogPanel class="bg-dark p-8 rounded-2xl h-[90vh] w-[90vw]">
-                    <h3 class="text-light text-big3">{{ project.name }}</h3>
-                    <p class="text-big6">{{ project.description }}</p>
-                    <div class="flex overflow-x-scroll">
-                      <NuxtImg v-for="(image, imgIndex) in project.images" :key="imgIndex" :src="project.images[imgIndex]" class="mx-4" />
+                  <DialogPanel class="bg-dark rounded-2xl h-[90vh] w-[90vw] shadow-2xl shadow-dark/50 overflow-y-scroll flex flex-col">
+                    <div class="flex-grow p-8 flex flex-col">
+                      <h3 class="text-light text-big3">{{ project.name }}</h3>
+                      <p class="text-light">{{ project.description }}</p>
+                      <NuxtLink :to="project.link" target="_blank" class="bg-gray-300 text-dark px-4 py-2 rounded-3xl w-fit mt-4">
+                        {{ project.textLink }}
+                      </NuxtLink>
+                    </div>
+                    <p v-if="project.images.length > 1" class="text-light w-full text-center">
+                      Scroll
+                      <Icon name="fluent:arrow-right-12-regular" class="filter-light" />
+                    </p>
+                    <div ref="scroll" class="flex p-4" :class="{'overflow-x-scroll' : project.images.length > 1 }">
+                      <NuxtImg v-for="(image, imgIndex) in project.images" :key="imgIndex" :src="project.images[imgIndex]" class="mx-4 first:mx-0 rounded-3xl" />
                     </div>
                   </DialogPanel>
                 </TransitionChild>
@@ -116,7 +124,7 @@ const projects = [
   {
     name: 'The Favorite',
     mainImage: 'https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/competition.png',
-    description: "My The Favorite offers a humorous take on the burden of parenthood. Parents work as a real team, while having fun competing against each other.",
+    description: "The Favorite was my first team project. I led the development of the mobile web app in one month",
     images: [
       "https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/root.png",
       "https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/home_tasks.png",
@@ -125,13 +133,14 @@ const projects = [
       "https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/common_pot.png",
       "https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/kids.png",
     ],
-    link: 'https://github.com/max13h/the_favorite'
+    link: 'https://github.com/max13h/the_favorite',
+    textLink: 'Check the repo'
   },
   {
     name: 'Early stage project',
-    mainImage: 'https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/competition.png',
+    mainImage: 'logo_secretproject.png',
     description: '',
-    images: [],
+    images: ["logo_secretproject.png"],
     link: ''
   },
   {
@@ -152,6 +161,8 @@ function openModal(technologie: string) {
 }
 
 onMounted(() => {
+
+
   // gsap.timeline()
   //   .to('.test', {
   //     x: 1000
