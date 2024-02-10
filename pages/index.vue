@@ -5,6 +5,8 @@
     <Welcome />
     <AboutMe id="AboutMe" />
     <MyProjects />
+    <Contact />
+    <Footer />
   </div>
 </template>
 
