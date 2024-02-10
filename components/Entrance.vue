@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute top-0 left-0 z-20 w-full h-full">
+  <div class="absolute top-0 left-0 z-[500] w-full h-full">
     <div class="w-full h-screen fixed top-0 left-0 z-30">
       <div class="w-full h-full flex">
         <div class="entrance-line w-[10%] h-full bg-dark"></div>
