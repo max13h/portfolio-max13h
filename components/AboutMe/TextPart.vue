@@ -1,22 +1,11 @@
 <template>
-  <div class="t-toppart">
+  <div>
     <div class="
-      w-full
-      absolute
-      -top-[7.5rem]
-      right-0
-      sm:-top-[9.5rem]
-      sm:right-4
-      md:-top-[10.5rem]
-      md:right-8
-      lg:-top-[11.5rem]
-      lg:right-16
-      xl:-top-[14rem]
-      xl:right-16
+      t-group-mynameis
     ">
-      <p class="t-mynameis mix-blend-difference inline-block text-big3 text-nowrap text-end w-full">
+      <p class="t-mynameis mix-blend-difference text-light inline-block pe-2 text-big3 text-nowrap text-end w-full me-4">
         My name is <br/>
-        <span class="font-bold tracking-widest text-light">Maxime</span>
+        <span class="font-bold tracking-widest text-light" style="font-family: 'farnhamtext-regularlfregular';">Maxime</span>
       </p>
       <div class="
         t-imageofme
@@ -26,23 +15,31 @@
         justify-center
         items-center
         absolute
-        top-2/3
-        left-4 sm:left-1/3
+        top-full
+        left-2 sm:left-1/3
         w-32 sm:w-40 md:w-48 lg:w-56 xl:w-64
         h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64">
         <NuxtImg src="/me.jpg" alt="Picture of max13h" sizes="128px sm:160px md:192px lg:224px xl:256px"></NuxtImg>
       </div>
     </div>
-    <p class="
-      t-imajunior
-      text-big4
-      mt-40
-      md:mt-48
-      lg:mt-56
-      xl:mt-64
-    ">I'm a junior</p>
-    <p ref="webdeveloperLetters" class="t-webdeveloper w-full min-h-24 relative inline-block text-big4 text-center font-bold tracking-widest">Web Developer</p>
-    <p class="t-proficientin text-big5 text-nowrap text-center my-32 md:my-40">Proficient in...</p>
+
+    <div class="divider-block"></div>
+
+    <div class="t-group-imajuniorwebdeveloper">
+      <p class="
+        t-imajunior
+        text-big4
+        mix-blend-difference
+        text-light
+      ">
+        I'm a junior
+      </p>
+      <p ref="webdeveloperLetters" class="t-webdeveloper mix-blend-difference w-full relative inline-block text-big4 text-center font-bold tracking-widest !text-big3">Web Developer</p>
+    </div>
+    <div class="divider-block"></div>
+    <div class="t-group-proficientin">
+      <p class="t-proficientin text-big4 text-nowrap text-center mix-blend-difference text-light">Proficient in...</p>
+    </div>
   </div>
 </template>
 
@@ -60,10 +57,10 @@ onMounted(() => {
   gsap.timeline()
     .from('.t-mynameis', {
       scrollTrigger: {
-        trigger: '#aboutme',
-        start: '-500% center',
-        end: 'bottom center',
-        scrub: 1,
+        trigger: '.t-group-mynameis',
+        start: '-200px 45%',
+        end: 'top 45%',
+        scrub: 1.5,
       },
       opacity: 0,
       filter: "blur(10px)",
@@ -72,30 +69,41 @@ onMounted(() => {
     })
     .from('.t-imageofme', {
       scrollTrigger: {
-        trigger: '#aboutme',
-        start: '-500% center',
-        end: 'bottom center',
-        scrub: 1,
+        trigger: '.t-group-mynameis',
+        start: '-200px 55%',
+        end: 'bottom 55%',
+        scrub: 1.5,
       },
       opacity: 0,
       yPercent: -1000,
       filter: "blur(10px)",
     })
+    .from('html', {
+      scrollTrigger: {
+        trigger: '.t-group-mynameis',
+        start: '-200px 55%',
+        end: 'bottom 55%',
+        scrub: 1.5,
+      },
+      '--opacity-land1': 0,
+      '--blur-land1': 'blur(10px)',
+    })
     .from('.t-imajunior', {
       scrollTrigger: {
-        trigger: '.t-imajunior',
-        start: '-100px center',
-        end: '+=200',
-        scrub: 1,
+        trigger: '.t-group-imajuniorwebdeveloper',
+        start: '-200px 55%',
+        end: 'top 55%',
+        scrub: 1.5,
       },
+      xPercent: -100,
       opacity: 0,
       filter: "blur(10px)",
     })
     .from('.t-webdeveloper-letters', {
       scrollTrigger: {
-        trigger: '.t-imajunior',
-        start: '-50px center',
-        end: '+=200',
+        trigger: '.t-group-imajuniorwebdeveloper',
+        start: '-100 55%',
+        end: 'center 55%',
         scrub: 1.5,
       },
       x: (index, target) => {
@@ -109,19 +117,30 @@ onMounted(() => {
     })
     .from('.t-webdeveloper', {
       scrollTrigger: {
-        trigger: '.t-imajunior',
-        start: 'top center',
-        end: '+=100',
-        scrub: 1,
+        trigger: '.t-group-imajuniorwebdeveloper',
+        start: '-200 55%',
+        end: 'center 55%',
+        scrub: 1.5,
       },
       opacity: 0
     })
+    .from('html', {
+      scrollTrigger: {
+        trigger: '.t-group-imajuniorwebdeveloper',
+        start: '-200px 55%',
+        end: 'bottom 55%',
+        scrub: 1.5,
+      },
+      '--opacity-land2': 0,
+      '--blur-land2': 'blur(10px)',
+    })
     .from('.t-proficientin', {
       scrollTrigger: {
-        trigger: '.t-proficientin',
-        start: '-100px center',
-        end: '+=100',
-        scrub: 1,
+        trigger: '.t-group-proficientin',
+        start: '-200px 55%',
+        end: 'top 55%',
+        scrub: 1.5,
+        markers: true
       },
       yPercent: -200,
       filter: 'blur(10px)',
@@ -132,4 +151,27 @@ onMounted(() => {
 
 <style scoped>
 
+.t-group-mynameis,
+.t-group-imajuniorwebdeveloper,
+.t-group-proficientin {
+  @apply relative
+}
+.t-group-mynameis:after {
+  content: '';
+  filter: var(--blur-land1);
+  opacity: var(--opacity-land1);
+  @apply w-full h-[50%] absolute top-1/2 left-0 -translate-y-1/2 bg-dark rounded-2xl -z-10
+}
+.t-group-imajuniorwebdeveloper:after {
+  content: '';
+  filter: var(--blur-land2);
+  opacity: var(--opacity-land2);
+  @apply w-full h-[50%] absolute top-1/2 left-0 -translate-y-1/2 bg-dark rounded-2xl -z-10
+}
+.t-group-proficientin:after {
+  content: '';
+  filter: var(--blur-land3);
+  opacity: var(--opacity-land3);
+  @apply w-full h-full absolute top-1/2 left-0 bg-dark rounded-t-2xl -z-10
+}
 </style>

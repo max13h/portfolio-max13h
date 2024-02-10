@@ -57,9 +57,15 @@ font-weight: 600;
 }
 
 html {
+  overflow: hidden;
   --bottom-circle: 100%;
   --display-circle: none;
-  overflow: hidden;
+  --opacity-land1: 1;
+  --blur-land1: blur(0px);
+  --opacity-land2: 1;
+  --blur-land2: blur(0px);
+  --opacity-land3: 1;
+  --blur-land3: blur(0px);
 }
 
 * {
@@ -78,15 +84,8 @@ body {
   @apply text-dark
 }
 
-.v-popper--theme-max13h .v-popper__inner {
-  background: #f7f6f9;
-  color: #0e0e0f;
-  padding: 8px;
-  border: none;
-  border-radius: 8px;
-}
-
-.v-popper--theme-max13h .v-popper__arrow-container {
-  filter: brightness(0) saturate(100%) invert(100%) sepia(12%) saturate(775%) hue-rotate(182deg) brightness(100%) contrast(96%);
-  border: none;
+.divider-block {
+  @apply
+    h-56 sm:h-64 md:h-72 lg:h-80 xl:h-96
+    bg-teal-600
 }
