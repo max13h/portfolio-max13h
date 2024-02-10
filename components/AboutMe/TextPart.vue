@@ -37,11 +37,12 @@
       <p ref="webdeveloperLetters" class="t-webdeveloper mix-blend-difference w-full relative inline-block text-big4 text-center font-bold tracking-widest !text-big3">Web Developer</p>
     </div>
 
-    <div class="divider-block-sm"></div>
+    <div class="divider-block-md"></div>
 
     <div class="t-group-proficientin">
       <p class="t-proficientin text-big4 text-nowrap text-center mix-blend-difference text-light">Proficient in...</p>
     </div>
+    <div class="divider-block-sm bg-dark"></div>
   </div>
 </template>
 
@@ -142,7 +143,6 @@ onMounted(() => {
         start: '-200px 55%',
         end: 'top 55%',
         scrub: 1.5,
-        markers: true
       },
       yPercent: -200,
       filter: 'blur(10px)',

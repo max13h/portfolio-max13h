@@ -66,6 +66,10 @@ html {
   --blur-land2: blur(0px);
   --opacity-land3: 1;
   --blur-land3: blur(0px);
+  --opacity-land4: 1;
+  --blur-land4: blur(0px);
+  --opacity-land5: 1;
+  --blur-land5: blur(0px);
 }
 
 * {
@@ -77,18 +81,16 @@ body {
   font-family: luxeuno, sans-serif;
 }
 
-.bg-dark p {
-  @apply text-light
-}
-.bg-light p {
-  @apply text-dark
-}
-
 .divider-block-lg {
   @apply
     h-56 sm:h-64 md:h-72 lg:h-80 xl:h-96
 }
-.divider-block-sm {
+.divider-block-md {
   @apply
     h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64
+}
+
+.divider-block-sm {
+  @apply
+    h-16 sm:h-24 md:h-32 lg:h-40 xl:h-48
 }

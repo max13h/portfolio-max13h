@@ -1,150 +1,180 @@
 <template>
-  <div class="t-mystack w-full flex flex-col items-center md:flex-row md:justify-evenly">
-    <div class="flex flex-col items-center">
-      <p class="t-backandfront text-big4 font-semibold">Back-end</p>
-      <p class="t-backandfront text-big6 opacity-75 -translate-y-4">development</p>
-      <p class="technologie text-base opacity-50">My technologies:</p>
+  <div class="t-mystack bg-dark w-full h-full flex flex-col items-center md:flex-row md:justify-evenly">
+    <div class="t-group-backend flex flex-col items-center mt-4">
+      <div class="t-backend-bg">
+        <p class="t-backend text-light text-big4 font-semibold text-center mix-blend-difference leading-6">
+          Back-end
+          <br>
+          <span class="text-light text-big6 opacity-75">development</span>
+        </p>
+      </div>
 
-      <div class="flex flex-wrap justify-evenly items-center max-w-72 sm:max-w-80 md:max-w-96 lg:max-w-md xl:max-w-lg">
+      <div class="t-group-backend-technologies bg-light rounded-b-3xl w-full h-full p-4 pt-5 -translate-y-[2px]">
+        <div class="flex flex-wrap justify-evenly mt-4 items-center max-w-72 sm:max-w-80 md:max-w-96 lg:max-w-md xl:max-w-lg ">
 
-        <div v-for="(technologie, index) in backEndTechnologies" :key="index" class="relative m-2">
-          <Icon
-            :name="technologie.icon"
-            size="8rem"
-            class="technologie w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32"
-            :class="{
-              'technologie-active': modalOpened === technologie.name,
-              'technologie-rails': technologie.name === 'Ruby on Rails',
-              'technologie-rails-active': modalOpened === 'Ruby on Rails' && technologie.name === 'Ruby on Rails',
-           }"
-            @click="openModal(technologie.name)" />
+          <div v-for="(technologie, index) in backEndTechnologies" :key="index" class="relative m-2">
+            <Icon
+              :name="technologie.icon"
+              size="8rem"
+              class="tech-icon   w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32"
+              :class="{
+                'tech-icon-active': modalOpened === technologie.name,
+                'tech-icon-rails': technologie.name === 'Ruby on Rails',
+                'tech-icon-rails-active': modalOpened === 'Ruby on Rails' && technologie.name === 'Ruby on Rails',
+              }"
+              @click="openModal(technologie.name)" />
 
-          <TransitionRoot appear :show="modalOpened === technologie.name">
-            <Dialog @close="closeModal" class="relative z-10">
-              <TransitionChild
-                as="div"
-                enter="duration-300 ease-out"
-                enter-from="opacity-0"
-                enter-to="opacity-100"
-                leave="duration-200 ease-in"
-                leave-from="opacity-100"
-                leave-to="opacity-0"
-              >
-                <div class="fixed inset-0 bg-black/25" />
-              </TransitionChild>
-
-              <div class="fixed inset-0 overflow-y-auto">
-                <div
-                  class="flex min-h-full items-center justify-center p-4 text-center"
+            <TransitionRoot appear :show="modalOpened === technologie.name">
+              <Dialog @close="closeModal" class="relative z-[400]">
+                <TransitionChild
+                  as="div"
+                  enter="duration-300 ease-out"
+                  enter-from="opacity-0"
+                  enter-to="opacity-100"
+                  leave="duration-200 ease-in"
+                  leave-from="opacity-100"
+                  leave-to="opacity-0"
                 >
-                  <TransitionChild
-                    as="div"
-                    enter="duration-300 ease-out"
-                    enter-from="opacity-0 scale-95"
-                    enter-to="opacity-100 scale-100"
-                    leave="duration-200 ease-in"
-                    leave-from="opacity-100 scale-100"
-                    leave-to="opacity-0 scale-95"
+                  <div class="fixed inset-0 bg-dark/50" />
+                </TransitionChild>
+
+                <div class="fixed inset-0 overflow-y-auto">
+                  <div
+                    class="flex min-h-full items-center justify-center p-4 text-center"
                   >
-                    <DialogPanel class="bg-light p-4 rounded-2xl">
-                      <NuxtLink :to="technologie.link" rel="external noopener" target="_blank" class="flex justify-center items-center font-bold">
-                        {{ technologie.name }}
-                        <Icon name="fluent:open-12-regular" class="ms-1"/>
-                      </NuxtLink>
-                      <p class="font-thin text-sm text-dark">{{ technologie.title }}</p>
-                      <DialogDescription>
-                        <q class="italic opacity-50 max-w-64 inline-block mt-4">{{ technologie.quote }}</q>
-                      </DialogDescription>
-                      <div class="mt-4">
-                        <button
-                          type="button"
-                          class="inline-flex justify-center rounded-md border border-transparent bg-gray-300 hover:opacity-90 px-4 py-2 text-sm font-medium"
-                          @click="closeModal"
-                        >
-                          Close
-                        </button>
-                      </div>
-                    </DialogPanel>
-                  </TransitionChild>
+                    <TransitionChild
+                      as="div"
+                      enter="duration-300 ease-out"
+                      enter-from="opacity-0 scale-95"
+                      enter-to="opacity-100 scale-100"
+                      leave="duration-200 ease-in"
+                      leave-from="opacity-100 scale-100"
+                      leave-to="opacity-0 scale-95"
+                    >
+                      <DialogPanel class="bg-light p-4 rounded-2xl shadow-2xl shadow-light/50">
+                        <Icon
+                          :name="technologie.icon"
+                          size="8rem"
+                          class="mb-4 w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32"
+                          :class="{
+                            'tech-icon-rails-active': technologie.name === 'Ruby on Rails',
+                          }"
+                        />
+                        <NuxtLink :to="technologie.link" rel="external noopener" target="_blank" class="flex justify-center items-center font-bold">
+                          {{ technologie.name }}
+                          <Icon name="fluent:open-12-regular" class="ms-1"/>
+                        </NuxtLink>
+                        <p class="font-thin text-sm text-dark">{{ technologie.title }}</p>
+                        <DialogDescription>
+                          <q class="italic opacity-50 max-w-64 inline-block mt-4">{{ technologie.quote }}</q>
+                        </DialogDescription>
+                        <div class="mt-4">
+                          <button
+                            type="button"
+                            class="inline-flex justify-center rounded-md border border-transparent bg-gray-300 hover:opacity-90 px-4 py-2 text-sm font-medium"
+                            @click="closeModal"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </DialogPanel>
+                    </TransitionChild>
+                  </div>
                 </div>
-              </div>
-            </Dialog>
-          </TransitionRoot>
+              </Dialog>
+            </TransitionRoot>
+          </div>
+
         </div>
       </div>
     </div>
 
-    <p class="t-backandfront text-big5 my-12 md:self-start md:mt-8">&</p>
+    <p class="t-and text-light text-big5 my-16 md:self-start md:mt-8">&</p>
 
-    <div class="frontend flex flex-col items-center">
-      <p class="t-backandfront text-big4 font-semibold">Front-end</p>
-      <p class="t-backandfront text-big6 opacity-75 -translate-y-4">development</p>
-      <p class="technologie text-base opacity-50">My technologies:</p>
-      <div class="flex flex-wrap justify-evenly items-center max-w-72 sm:max-w-80 md:max-w-96 lg:max-w-md xl:max-w-lg">
+    <div class="t-group-frontend flex flex-col items-center mt-4">
+      <div class="t-frontend-bg">
+        <p class="t-frontend text-light text-big4 font-semibold text-center mix-blend-difference leading-6">
+          Front-end
+          <br>
+          <span class="text-light text-big6 opacity-75">development</span>
+        </p>
+      </div>
 
-        <div v-for="(technologie, index) in frontEndTechnologies" :key="index" class="relative m-2">
-          <Icon
-            :name="technologie.icon"
-            size="8rem"
-            class="technologie w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32"
-            :class="{
-              'technologie-active': modalOpened === technologie.name,
-              'technologie-rails': technologie.name === 'Ruby on Rails',
-              'technologie-rails-active': modalOpened === 'Ruby on Rails' && technologie.name === 'Ruby on Rails',
-           }"
-            @click="openModal(technologie.name)" />
+      <div class="t-group-frontend-technologies bg-light rounded-b-3xl w-full h-full p-4 pt-5 -translate-y-[2px]">
+        <div class="flex flex-wrap justify-evenly mt-4 items-center max-w-72 sm:max-w-80 md:max-w-96 lg:max-w-md xl:max-w-lg ">
 
-          <TransitionRoot appear :show="modalOpened === technologie.name">
-            <Dialog @close="closeModal" class="relative z-10">
-              <TransitionChild
-                as="div"
-                enter="duration-300 ease-out"
-                enter-from="opacity-0"
-                enter-to="opacity-100"
-                leave="duration-200 ease-in"
-                leave-from="opacity-100"
-                leave-to="opacity-0"
-              >
-                <div class="fixed inset-0 bg-black/25" />
-              </TransitionChild>
+          <div v-for="(technologie, index) in frontEndTechnologies" :key="index" class="relative m-2">
+            <Icon
+              :name="technologie.icon"
+              size="8rem"
+              class="tech-icon w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32"
+              :class="{
+                'tech-icon-active': modalOpened === technologie.name,
+                'tech-icon-rails-active': modalOpened === 'Ruby on Rails' && technologie.name === 'Ruby on Rails',
+              }"
+              @click="openModal(technologie.name)" />
 
-              <div class="fixed inset-0 overflow-y-auto">
-                <div
-                  class="flex min-h-full items-center justify-center p-4 text-center"
+            <TransitionRoot appear :show="modalOpened === technologie.name">
+              <Dialog @close="closeModal" class="relative z-[400]">
+                <TransitionChild
+                  as="div"
+                  enter="duration-300 ease-out"
+                  enter-from="opacity-0"
+                  enter-to="opacity-100"
+                  leave="duration-200 ease-in"
+                  leave-from="opacity-100"
+                  leave-to="opacity-0"
                 >
-                  <TransitionChild
-                    as="div"
-                    enter="duration-300 ease-out"
-                    enter-from="opacity-0 scale-95"
-                    enter-to="opacity-100 scale-100"
-                    leave="duration-200 ease-in"
-                    leave-from="opacity-100 scale-100"
-                    leave-to="opacity-0 scale-95"
+                  <div class="fixed inset-0 bg-dark/50" />
+                </TransitionChild>
+
+                <div class="fixed inset-0 overflow-y-auto">
+                  <div
+                    class="flex min-h-full items-center justify-center p-4 text-center"
                   >
-                    <DialogPanel class="bg-light p-4 rounded-2xl">
-                      <NuxtLink :to="technologie.link" rel="external noopener" target="_blank" class="flex justify-center items-center font-bold">
-                        {{ technologie.name }}
-                        <Icon name="fluent:open-12-regular" class="ms-1"/>
-                      </NuxtLink>
-                      <p class="font-thin text-sm text-dark">{{ technologie.title }}</p>
-                      <DialogDescription>
-                        <q class="italic opacity-50 max-w-64 inline-block mt-4">{{ technologie.quote }}</q>
-                      </DialogDescription>
-                      <div class="mt-4">
-                        <button
-                          type="button"
-                          class="inline-flex justify-center rounded-md border border-transparent bg-gray-300 hover:opacity-90 px-4 py-2 text-sm font-medium"
-                          @click="closeModal"
-                        >
-                          Close
-                        </button>
-                      </div>
-                    </DialogPanel>
-                  </TransitionChild>
+                    <TransitionChild
+                      as="div"
+                      enter="duration-300 ease-out"
+                      enter-from="opacity-0 scale-95"
+                      enter-to="opacity-100 scale-100"
+                      leave="duration-200 ease-in"
+                      leave-from="opacity-100 scale-100"
+                      leave-to="opacity-0 scale-95"
+                    >
+                      <DialogPanel class="bg-light p-4 rounded-2xl shadow-2xl shadow-light/50">
+                        <Icon
+                          :name="technologie.icon"
+                          size="8rem"
+                          class="mb-4 w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32"
+                          :class="{
+                            'tech-icon-rails-active': technologie.name === 'Ruby on Rails',
+                          }"
+                        />
+                        <NuxtLink :to="technologie.link" rel="external noopener" target="_blank" class="flex justify-center items-center font-bold">
+                          {{ technologie.name }}
+                          <Icon name="fluent:open-12-regular" class="ms-1"/>
+                        </NuxtLink>
+                        <p class="font-thin text-sm text-dark">{{ technologie.title }}</p>
+                        <DialogDescription>
+                          <q class="italic opacity-50 max-w-64 inline-block mt-4">{{ technologie.quote }}</q>
+                        </DialogDescription>
+                        <div class="mt-4">
+                          <button
+                            type="button"
+                            class="inline-flex justify-center rounded-md border border-transparent bg-gray-300 hover:opacity-90 px-4 py-2 text-sm font-medium"
+                            @click="closeModal"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </DialogPanel>
+                    </TransitionChild>
+                  </div>
                 </div>
-              </div>
-            </Dialog>
-          </TransitionRoot>
+              </Dialog>
+            </TransitionRoot>
+          </div>
+
         </div>
       </div>
     </div>
@@ -244,58 +274,136 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
   gsap.timeline()
-    .from('.t-backandfront', {
+    .from('.t-backend', {
       scrollTrigger: {
-        trigger: '.t-toppart',
-        start: 'bottom center',
-        end: '+=100',
-        scrub: 1,
+        trigger: '.t-group-backend',
+        start: '-200 55%',
+        end: 'top 55%',
+        scrub: 1.5,
       },
       filter: 'blur(10px)',
       opacity: 0,
-      scale: 0
+      scale: 0,
+      xPercent: -300
     })
-    .from('.technologie', {
+    .from('html', {
       scrollTrigger: {
-        trigger: '.technologie',
-        start: '-100px center',
-        end: '+=0px',
-        scrub: true
+        trigger: '.t-group-backend-technologies',
+        start: '-200 55%',
+        end: 'top 55%',
+        scrub: 1.5,
       },
+
+      '--blur-land4': 'blur(10px)',
+      '--opacity-land4': 0,
+    })
+    .from('.t-group-backend-technologies', {
+      scrollTrigger: {
+        trigger: '.t-group-backend-technologies',
+        start: '-200 55%',
+        end: 'top 55%',
+        scrub: 1.5,
+      },
+      filter: 'blur(10px)',
       opacity: 0,
+      borderBottomLeftRadius: 100,
+      borderBottomRightRadius: 100,
+      height: '0%',
+    })
+    .from('.t-and', {
+      scrollTrigger: {
+        trigger: '.t-and',
+        start: '-200 55%',
+        end: 'top 55%',
+        scrub: 1.5,
+      },
+      filter: 'blur(10px)',
+      opacity: 0,
+      scale: 0,
+    })
+    .from('.t-frontend', {
+      scrollTrigger: {
+        trigger: '.t-group-frontend',
+        start: '-200 55%',
+        end: 'top 55%',
+        scrub: 1.5,
+      },
+      filter: 'blur(10px)',
+      opacity: 0,
+      scale: 0,
+      xPercent: 300
+    })
+    .from('html', {
+      scrollTrigger: {
+        trigger: '.t-group-frontend-technologies',
+        start: '-200 55%',
+        end: 'top 55%',
+        scrub: 1.5,
+      },
+
+      '--blur-land5': 'blur(10px)',
+      '--opacity-land5': 0,
+    })
+    .from('.t-group-frontend-technologies', {
+      scrollTrigger: {
+        trigger: '.t-group-frontend-technologies',
+        start: '-200 55%',
+        end: 'top 55%',
+        scrub: 1.5,
+      },
+      filter: 'blur(10px)',
+      opacity: 0,
+      borderBottomLeftRadius: 100,
+      borderBottomRightRadius: 100,
+      height: '0%',
     })
 })
 </script>
 
 <style scoped>
-.technologie {
+.tech-icon {
   @apply transition-all duration-500;
   filter: saturate(0);
-  opacity: 0.8;
   cursor: pointer;
 }
-.technologie:hover {
+.tech-icon:hover {
   filter: none;
   opacity: 1;
 }
-.technologie-active {
+.tech-icon-active {
   filter: none;
   opacity: 1;
 }
 
-.technologie-rails {
+.tech-icon-rails {
   @apply transition-all duration-500;
   filter: brightness(0%) saturate(100%) invert(100%) sepia(0%) saturate(0%) brightness(0%) contrast(0%);
-  opacity: 0.8;
   cursor: pointer;
 }
-.technologie-rails:hover {
+.tech-icon-rails:hover {
   filter: brightness(0) saturate(100%) invert(20%) sepia(84%) saturate(5919%) brightness(73%) contrast(120%);
   opacity: 1;
 }
 
-.technologie-rails-active {
+.tech-icon-rails-active {
   filter: brightness(0) saturate(100%) invert(20%) sepia(84%) saturate(5919%) brightness(73%) contrast(120%);
   opacity: 1;
+}
+
+.t-backend-bg,
+.t-frontend-bg {
+  @apply relative w-full z-20
+}
+.t-backend-bg:after {
+  content: '';
+  opacity: var(--opacity-land4);
+  filter: var(--blur-land4);
+  @apply bg-light w-full h-[67%] rounded-t-3xl -z-10 absolute bottom-0 left-0
+}
+.t-frontend-bg:after {
+  content: '';
+  opacity: var(--opacity-land5);
+  filter: var(--blur-land5);
+  @apply bg-light w-full h-[67%] rounded-t-3xl -z-10 absolute bottom-0 left-0
 }
 </style>
