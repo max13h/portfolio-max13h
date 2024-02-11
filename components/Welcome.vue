@@ -56,7 +56,7 @@ onMounted(() => {
       scrollTrigger: {
         trigger: '.letter',
         start: 'bottom center',
-        end: '+=300px',
+        end: '+=200px',
         scrub: 1,
       },
       yPercent: -500,
