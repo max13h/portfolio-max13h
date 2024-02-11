@@ -66,7 +66,7 @@
                         </NuxtLink>
                         <p class="font-thin text-sm text-dark">{{ technologie.title }}</p>
                         <DialogDescription>
-                          <q class="italic opacity-50 max-w-64 inline-block mt-4 text-big6">{{ technologie.quote }}</q>
+                          <q class="italic opacity-50 max-w-64 inline-block mt-4 text-big6 lg:text-xl">{{ technologie.quote }}</q>
                         </DialogDescription>
                         <div class="mt-4">
                           <button
@@ -156,7 +156,7 @@
                         </NuxtLink>
                         <p class="font-thin text-sm text-dark">{{ technologie.title }}</p>
                         <DialogDescription>
-                          <q class="italic opacity-50 max-w-64 inline-block mt-4 text-big6">{{ technologie.quote }}</q>
+                          <q class="italic opacity-50 max-w-64 inline-block mt-4 text-big6 lg:text-xl">{{ technologie.quote }}</q>
                         </DialogDescription>
                         <div class="mt-4">
                           <button

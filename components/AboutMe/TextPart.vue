@@ -3,7 +3,7 @@
     <div class="
       t-group-mynameis
     ">
-      <p class="t-mynameis mix-blend-difference text-light inline-block pe-2 text-big3 text-nowrap text-end w-full me-4">
+      <p class="t-mynameis mix-blend-difference text-light inline-block pe-4 text-big3 text-nowrap text-end w-full">
         My name is <br/>
         <span class="font-bold tracking-widest text-light" style="font-family: 'farnhamtext-regularlfregular';">Maxime</span>
       </p>
@@ -15,7 +15,7 @@
         justify-center
         items-center
         absolute
-        top-full
+        top-full md:top-2/3
         left-2 sm:left-1/3
         w-32 sm:w-40 md:w-48 lg:w-56 xl:w-64
         h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64">
@@ -163,13 +163,13 @@ onMounted(() => {
   content: '';
   filter: var(--blur-land1);
   opacity: var(--opacity-land1);
-  @apply w-4/5 sm:w-2/3 lg:w-1/2 h-[50%] absolute top-1/2 right-0 -translate-y-1/2 bg-dark rounded-3xl xl:rounded-[3rem] -z-10
+  @apply w-4/5 sm:w-2/3 h-[50%] absolute top-1/2 right-0 -translate-y-1/2 bg-dark rounded-l-3xl xl:rounded-l-[3rem] -z-10
 }
 .t-group-imajuniorwebdeveloper:after {
   content: '';
   filter: var(--blur-land2);
   opacity: var(--opacity-land2);
-  @apply w-4/5 sm:w-2/3 lg:w-2/3 h-[50%] absolute top-1/2 left-0 -translate-y-1/2 bg-dark rounded-3xl xl:rounded-[3rem] -z-10
+  @apply w-4/5 sm:w-2/3 h-[50%] absolute top-1/2 left-0 -translate-y-1/2 bg-dark rounded-r-3xl xl:rounded-r-[3rem] -z-10
 }
 .t-group-proficientin:after {
   content: '';
