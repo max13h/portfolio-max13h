@@ -1,10 +1,10 @@
 <template>
   <div class="whole-panel sticky top-0 -z-50 w-full h-screen overflow-hidden flex justify-center items-center">
     <h1 class="text-big1 w-full text-center inline-block">
-        <span :ref="letters[0]" >Hello, I'm </span>
-        <span class="flex flex-wrap justify-center">
-          <span :ref="letters[1]" class="max13h relative">max13h</span>
-        </span>
+      <span :ref="letters[0]" >Hello, I'm </span>
+      <span class="flex flex-wrap justify-center">
+        <span :ref="letters[1]" class="max13h relative w-full">max13h</span>
+      </span>
     </h1>
     <div class="scroll-down absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col justify-center items-center">
       <p>Scroll down !</p>
@@ -111,7 +111,7 @@ onMounted(() => {
       opacity: 0
     }, '<')
     .from('nav', {
-        duration: 1,
+        duration: 2,
         opacity: 0,
       }, '<')
 })

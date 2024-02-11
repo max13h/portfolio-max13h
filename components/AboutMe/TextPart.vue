@@ -31,13 +31,14 @@
         text-big4
         mix-blend-difference
         text-light
+        ms-4
       ">
         I'm a junior
       </p>
-      <p ref="webdeveloperLetters" class="t-webdeveloper mix-blend-difference w-full relative inline-block text-big4 text-center font-bold tracking-widest !text-big3">Web Developer</p>
+      <p ref="webdeveloperLetters" class="t-webdeveloper mix-blend-difference w-full relative inline-block text-big4 font-bold !text-big3 ms-4 mt-4">Web Developer</p>
     </div>
 
-    <div class="divider-block-md"></div>
+    <div class="divider-block-lg"></div>
 
     <div class="t-group-proficientin">
       <p class="t-proficientin text-big4 text-nowrap text-center mix-blend-difference text-light">Proficient in...</p>
@@ -162,13 +163,13 @@ onMounted(() => {
   content: '';
   filter: var(--blur-land1);
   opacity: var(--opacity-land1);
-  @apply w-2/3 h-[50%] absolute top-1/2 right-0 -translate-y-1/2 bg-dark rounded-3xl xl:rounded-[3rem] -z-10
+  @apply w-4/5 sm:w-2/3 lg:w-1/2 h-[50%] absolute top-1/2 right-0 -translate-y-1/2 bg-dark rounded-3xl xl:rounded-[3rem] -z-10
 }
 .t-group-imajuniorwebdeveloper:after {
   content: '';
   filter: var(--blur-land2);
   opacity: var(--opacity-land2);
-  @apply w-full h-[50%] absolute top-1/2 left-0 -translate-y-1/2 bg-dark rounded-3xl xl:rounded-[3rem] -z-10
+  @apply w-4/5 sm:w-2/3 lg:w-2/3 h-[50%] absolute top-1/2 left-0 -translate-y-1/2 bg-dark rounded-3xl xl:rounded-[3rem] -z-10
 }
 .t-group-proficientin:after {
   content: '';

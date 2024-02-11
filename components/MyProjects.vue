@@ -336,7 +336,6 @@ onMounted(() => {
         start: '-200 55%',
         end: 'top 55%',
         scrub: 1.5,
-        markers: true
       },
       opacity: 0,
       scale: 3,
