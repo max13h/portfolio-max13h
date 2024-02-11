@@ -1,5 +1,0 @@
-@layer components {
-  .card {
-    @apply rounded-2xl p-4 w-full bg-white shadow-md
-  }
-}
