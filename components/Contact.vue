@@ -1,18 +1,21 @@
 <template>
-  <div class="mt-32">
-    <div id="Contact" class="w-full h-24 bg-dark rounded-t-[8vw] relative p-8">
+  <div>
+    <div class="divider-block-md bg-light"></div>
+    <div class="t-heading relative leading-none">
       <h2 class="
-          inline-block
-          text-big2
-          mix-blend-difference
-          text-light
-          font-medium
+        ms-4
+        text-big2
+        mix-blend-difference
+        text-light
+        font-medium
       ">
-        Contact me
+        Contact
+        <br>
+        me
       </h2>
-      <p class="text-big5">I will be happy to connect with you</p>
     </div>
-    <div class="bg-dark h-[80vh]">
+
+    <div class="bg-dark h-[70vh]">
       <div class="flex flex-col sm:flex-row items-center justify-evenly h-full">
         <NuxtLink to="https://www.linkedin.com/in/max13h/" target="_blank" class="w-fit">
           <Icon
@@ -96,7 +99,7 @@ const copyContent = async () => {
 
   } catch (err) {
     console.log(err);
-    clipboardMessage.value = 'Failed to copy email'
+    clipboardMessage.value = 'Failed to copy the email. My address is: contact@max13h.fr'
     isMailCopied.value = false
   }
 }
@@ -110,5 +113,10 @@ const copyContent = async () => {
 
 .filter-light:hover {
   @apply scale-105
+}
+
+.t-heading:after {
+  content: '';
+  @apply bg-dark absolute bottom-0 left-0 rounded-t-3xl w-full h-[70%] -z-10
 }
 </style>

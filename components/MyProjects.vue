@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="divider-block-md bg-dark"></div>
+    <div class="divider-block-lg bg-dark"></div>
     <div class="t-heading relative leading-none">
       <h2 class="
       ms-4
@@ -14,6 +14,8 @@
         projects
       </h2>
     </div>
+
+    <div class="divider-block-sm"></div>
 
     <div
       class="
@@ -42,11 +44,10 @@
           sm:h-[90vw]
           md:min-w-[80vh]
           md:h-[80vh]
-
-
           sm:me-8
           sm:last:me-0
           sm:mt-0
+          cursor-pointer
         "
         @click="openModal(project.name)"
       >
@@ -93,6 +94,14 @@
                     <div class="flex-grow p-8 flex flex-col">
                       <h3 class="text-light text-big3">{{ project.name }}</h3>
                       <p class="text-light">{{ project.description }}</p>
+
+                      <div class="flex justify-start items-center overflow-y-scroll my-2">
+                        <NuxtLink v-for="(techno, technoIndex) in project.stack" :key="technoIndex" :to="techno.link" target="_blank" class="me-2 last:me-0">
+                          <Icon v-if="techno.isIcon" :name="techno.icon" size="1.5rem" :class="techno.class" />
+                          <NuxtImg v-else :src="techno.imageLink" :alt="`Icon of ${techno.name}`" :class="techno.class" />
+                        </NuxtLink>
+                      </div>
+
                       <NuxtLink :to="project.link" target="_blank" class="bg-gray-300 text-dark px-4 py-2 rounded-3xl w-fit mt-4">
                         {{ project.textLink }}
                       </NuxtLink>
@@ -102,7 +111,14 @@
                       <Icon name="fluent:arrow-right-12-regular" class="filter-light" />
                     </p>
                     <div ref="scroll" class="flex p-4" :class="{'overflow-x-scroll' : project.images.length > 1 }">
-                      <NuxtImg v-for="(image, imgIndex) in project.images" :key="imgIndex" :src="project.images[imgIndex]" class="mx-4 first:mx-0 rounded-3xl" />
+                      <NuxtLink
+                        v-for="(image, imgIndex) in project.images" :key="imgIndex"
+                        :to="image[0] == '/' ? actualURL + image : image"
+                        target="_blank"
+                        class="min-w-24 sm:min-w-32 mx-4 flex justify-center items-center"
+                      >
+                        <NuxtImg :src="image" class="mx-4 first:mx-0 rounded-3xl object-cover w-32" />
+                      </NuxtLink>
                     </div>
                   </DialogPanel>
                 </TransitionChild>
@@ -121,10 +137,124 @@ import { gsap } from "gsap"
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle, DialogDescription } from '@headlessui/vue'
 
 const projects = [
+{
+    name: 'Early stage project',
+    mainImage: 'secretproject/logo_secretproject.png',
+    description: "The project has the ambition to become a SaaS. I started working on it on november 2023 but due to its early stage and the absence of a legally registered name, I wouldn't share too much information at this time.",
+    stack: [
+      {
+        name: 'Nuxt',
+        isIcon: true,
+        icon: 'logos:nuxt-icon',
+        imageLink: '',
+        link: 'https://nuxt.com/',
+        class: ''
+      },
+      {
+        name: 'Typescript',
+        isIcon: true,
+        icon: 'devicon:typescript',
+        imageLink: '',
+        link: 'https://www.typescriptlang.org/',
+        class: ''
+      },
+      {
+        name: 'Typescript',
+        isIcon: true,
+        icon: 'logos:tailwindcss-icon',
+        imageLink: '',
+        link: 'https://tailwindcss.com/',
+        class: ''
+      },
+      {
+        name: 'Supabase',
+        isIcon: true,
+        icon: 'logos:supabase-icon',
+        imageLink: '',
+        link: 'https://supabase.com/',
+        class: ''
+      },
+      {
+        name: 'Vite',
+        isIcon: true,
+        icon: 'vscode-icons:file-type-vite',
+        imageLink: '',
+        link: 'https://vitejs.dev',
+        class: ''
+      },
+    ],
+    link: 'https://github.com/max13h/',
+    textLink: 'Check my GH instead',
+    images: [
+      'secretproject/logo_secretproject.png',
+      'secretproject/activity.png',
+      'secretproject/commits.png'
+    ],
+  },
   {
     name: 'The Favorite',
     mainImage: 'https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/competition.png',
     description: "The Favorite was my first team project. I led the development of the mobile web app in one month",
+    stack: [
+      {
+        name: 'Ruby',
+        isIcon: true,
+        icon: 'vscode-icons:file-type-ruby',
+        imageLink: '',
+        link: 'https://www.ruby-lang.org/',
+        class: ''
+      },
+      {
+        isIcon: true,
+        name: 'Ruby on Rails',
+        icon: 'simple-icons:rubyonrails',
+        link: 'https://rubyonrails.org/',
+        imageLink: '',
+        class: 'filter-red'
+      },
+      {
+        isIcon: true,
+        name: 'PostgreSQL',
+        icon: 'logos:postgresql',
+        link: 'https://www.postgresql.org/',
+        imageLink: '',
+        class: ''
+      },
+      {
+        isIcon: true,
+        name: 'Bootstrap',
+        icon: 'logos:bootstrap',
+        link: 'https://getbootstrap.com',
+        imageLink: '',
+        class: ''
+      },
+      {
+        isIcon: false,
+        name: 'SwiperJS',
+        icon: '',
+        link: 'https://swiperjs.com',
+        imageLink: 'https://swiperjs.com/images/swiper-logo.svg',
+        class: 'w-6'
+      },
+      {
+        isIcon: true,
+        name: 'Heroku',
+        icon: 'skill-icons:heroku',
+        link: 'https://www.heroku.com/',
+        imageLink: '',
+        class: ''
+      },
+      {
+        isIcon: true,
+        name: 'Cloudinary',
+        icon: 'logos:cloudinary-icon',
+        link: 'https://cloudinary.com/',
+        imageLink: '',
+        class: ''
+      },
+    ],
+    link: 'https://github.com/max13h/the_favorite',
+    textLink: 'Check the repo',
     images: [
       "https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/root.png",
       "https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/home_tasks.png",
@@ -133,22 +263,48 @@ const projects = [
       "https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/common_pot.png",
       "https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/kids.png",
     ],
-    link: 'https://github.com/max13h/the_favorite',
-    textLink: 'Check the repo'
-  },
-  {
-    name: 'Early stage project',
-    mainImage: 'logo_secretproject.png',
-    description: '',
-    images: ["logo_secretproject.png"],
-    link: ''
   },
   {
     name: 'Portfolio',
-    mainImage: 'https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/competition.png',
-    description: '',
-    images: [],
-    link: ''
+    mainImage: 'https://raw.githubusercontent.com/max13h/portfolio-max13h/master/public/portfolio-max13h.png',
+    description: "This is the website you're currently on. I wanted my portfolio to be creative with animations, transitions and showcase my knowledge of CSS in global aspect.",
+    stack: [
+      {
+        name: 'Nuxt',
+        isIcon: true,
+        icon: 'logos:nuxt-icon',
+        imageLink: '',
+        link: 'https://nuxt.com/',
+        class: ''
+      },
+      {
+        name: 'Typescript',
+        isIcon: true,
+        icon: 'logos:tailwindcss-icon',
+        imageLink: '',
+        link: 'https://tailwindcss.com/',
+        class: ''
+      },
+      {
+        name: 'GSAP',
+        isIcon: false,
+        icon: '',
+        imageLink: 'https://avatars.githubusercontent.com/u/2386673?s=200&v=4',
+        link: 'https://gsap.com/',
+        class: 'w-8'
+      },
+      {
+        name: 'CSS',
+        isIcon: true,
+        icon: 'devicon:css3',
+        imageLink: '',
+        link: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
+        class: ''
+      },
+    ],
+    link: 'https://github.com/max13h/portfolio-max13h',
+    textLink: 'Check the repo',
+    images: ['https://raw.githubusercontent.com/max13h/portfolio-max13h/master/public/portfolio-max13h.png'],
   }
 ]
 
@@ -160,8 +316,10 @@ function openModal(technologie: string) {
   modalOpened.value = technologie
 }
 
-onMounted(() => {
+const actualURL = ref()
 
+onMounted(() => {
+  actualURL.value = document.URL
 
   // gsap.timeline()
   //   .to('.test', {
@@ -175,5 +333,9 @@ onMounted(() => {
 .t-heading:after {
   content: '';
   @apply bg-dark absolute top-0 left-0 rounded-b-3xl w-full h-[26%] -z-10
+}
+
+.filter-red {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(84%) saturate(5919%) brightness(73%) contrast(120%);
 }
 </style>
