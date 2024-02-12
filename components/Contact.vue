@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="divider-block-md bg-light"></div>
-    <div class="t-heading relative leading-none">
+    <div class="t-contact-heading relative leading-none">
       <h2 id="contact" ref="contactme" class="
         t-contactme
         ms-4
@@ -23,7 +23,7 @@
             name="mdi:linkedin"
             size="16rem"
             class="
-              t-contacticons
+              t-contact-icons
               filter-light
               w-32 sm:w-36 md:w-40 lg:w-48 xl:w-56
               h-32 sm:h-36 md:h-4w-40 lg:h-48 xl:h-5w-56"
@@ -35,7 +35,7 @@
             name="fluent:mail-48-filled"
             size="16rem"
             class="
-              t-contacticons
+              t-contact-icons
               filter-light
               w-32 sm:w-36 md:w-40 lg:w-48 xl:w-56
               h-32 sm:h-36 md:h-4w-40 lg:h-48 xl:h-5w-56"
@@ -113,42 +113,34 @@ const contactme = ref()
 
 onMounted(() => {
   splitLettersInHTML(contactme, 't-contactme-letters text-light')
+
   gsap.registerPlugin(ScrollTrigger)
-  gsap.timeline()
-  .from('.t-contactme-letters', {
+
+  gsap.timeline({
     scrollTrigger: {
       trigger: '.t-contactme',
-      start: '-200 55%',
-      end: 'top 55%',
-      scrub: 1.5,
+      start: 'top 80%',
     },
+  })
+  .from('.t-contactme-letters', {
+    duration: 2,
+    ease: "power4.out",
     opacity: 0,
     yPercent: 50,
     stagger: 0.1
   })
-  .from('.t-contacticons', {
-    scrollTrigger: {
-      trigger: '.t-contactme',
-      start: '-100 55%',
-      end: '100 55%',
-      scrub: 1.5,
-    },
+  .from('.t-contact-icons', {
+    duration: 2,
+    ease: "power4.out",
+    xPercent: (index) => index === 0 ? -300 : 300,
     opacity: 0,
-  })
+  }, '<+=0.7')
 })
 
 </script>
 
 <style scoped>
-.filter-light {
-  @apply transition-all duration-150
-}
-
-.filter-light:hover {
-  @apply scale-105
-}
-
-.t-heading:after {
+.t-contact-heading:after {
   content: '';
   @apply bg-dark absolute bottom-0 left-0 rounded-t-3xl w-full h-[48%] -z-10
 }
