@@ -57,8 +57,8 @@ font-weight: 600;
 
 html {
   overflow: hidden;
-  --bottom-circle: 100%;
-  --display-circle: none;
+  --bottom-max13h: 100%;
+  --display-max13h: none;
   --opacity-land1: 1;
   --blur-land1: blur(0px);
   --opacity-land2: 1;

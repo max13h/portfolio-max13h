@@ -1,14 +1,12 @@
 <template>
-  <div class="whole-panel sticky top-0 -z-50 w-full h-screen overflow-hidden flex justify-center items-center">
-    <h1 class="text-big1 w-full text-center inline-block">
-      <span :ref="letters[0]" >Hello, I'm </span>
-      <span class="flex flex-wrap justify-center">
-        <span :ref="letters[1]" class="max13h relative w-full">max13h</span>
-      </span>
+  <div class="relative h-dvh flex justify-center items-center">
+    <h1 class="text-big1 flex flex-col items-center">
+      <span :ref="letters[0]">Hello, I'm </span>
+      <span :ref="letters[1]" class="max13h relative">max13h</span>
     </h1>
-    <div class="scroll-down absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col justify-center items-center">
+    <div class="t-scrolldown absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center">
       <p>Scroll down !</p>
-      <Icon name="fluent:arrow-circle-down-12-filled" size="2rem"  />
+      <Icon name="fluent:arrow-circle-down-12-filled" size="2rem" class="filter-dark"  />
     </div>
   </div>
 </template>
@@ -23,58 +21,60 @@ const gsapStore = useGsapStore()
 
 onMounted(() => {
   letters.map((el) => {
-    splitLettersInHTML(el, 'letter')
+    splitLettersInHTML(el, 't-helloimmax13h-letters')
   })
 
   gsap.registerPlugin(CustomEase)
   gsap.registerPlugin(ScrollTrigger)
 
+
+  gsap.to('.t-helloimmax13h-letters', {
+    scrollTrigger: {
+      trigger: '.t-helloimmax13h-letters',
+      start: 'bottom center',
+      end: '+=300px',
+      scrub: 1.5,
+    },
+    yPercent: -200,
+    xPercent: (index) => {
+      const obj: any = {}
+      for (let i = 0; i < 9; i++) {
+        const value = -500 + (i * (1000 / 8));
+        obj[i] = value;
+      }
+      for (let i = 0; i < 7; i++) {
+        const value = -200 + (i * (400 / 5));
+        obj[i + 9] = value;
+      }
+      return obj[index]
+    },
+    opacity: 0
+  })
+  gsap.to('.t-scrolldown', {
+    scrollTrigger: {
+      trigger: '.t-helloimmax13h-letters',
+      start: 'bottom center',
+      end: '+=200px',
+      scrub: 1.5,
+    },
+    yPercent: -500,
+    opacity: 0
+  })
+
   gsap.timeline().delay(2.5)
-    .to('.letter', {
-      scrollTrigger: {
-        trigger: '.letter',
-        start: 'bottom center',
-        end: '+=300px',
-        scrub: 0.3,
-      },
-      yPercent: -200,
-      xPercent: (index, target) => {
-        const obj = {}
-        for (let i = 0; i < 9; i++) {
-          const value = -500 + (i * (1000 / 8));
-          obj[i] = value;
-        }
-        for (let i = 0; i < 7; i++) {
-          const value = -200 + (i * (400 / 5));
-          obj[i + 9] = value;
-        }
-        return obj[index]
-      },
-      opacity: 0
-    })
-    .to('.scroll-down', {
-      scrollTrigger: {
-        trigger: '.letter',
-        start: 'bottom center',
-        end: '+=200px',
-        scrub: 1,
-      },
-      yPercent: -500,
-      opacity: 0
-    })
-    .from('.letter', {
+    .from('.t-helloimmax13h-letters', {
       xPercent: 5000,
       duration: 1,
       stagger: 0.05,
       ease: CustomEase.create("custom", "M0,0 C0.169,0.85 0.054,1.025 1,1 "),
     })
-    .to('.letter', {
+    .to('.t-helloimmax13h-letters', {
       rotate: () => `-${Math.floor(Math.random() * 20  + 10)}`,
       duration: 0.1,
       delay: 0.3,
       stagger: 0.06,
     }, '<')
-    .to('.letter', {
+    .to('.t-helloimmax13h-letters', {
       rotate: () => `${Math.floor(Math.random() * 16 - 8)}`,
       duration: 0.5,
       delay: 0.6,
@@ -84,11 +84,11 @@ onMounted(() => {
       overflow: 'hidden'
     })
     .to('html', {
-      '--display-circle': 'block'
+      '--display-max13h': 'block'
     }, '<')
     .to('html', {
       duration: 0.4,
-      '--bottom-circle': -50
+      '--bottom-max13h': -50
     }, '<')
     .to('.max13h', {
       duration: 0.1,
@@ -96,18 +96,18 @@ onMounted(() => {
     })
     .to('html', {
       duration: 0.4,
-      '--bottom-circle': 100,
+      '--bottom-max13h': 100,
       onComplete: () => { gsapStore.isWelcomed = true }
     }, '<')
     .to('html', {
-      '--display-circle': 'none',
+      '--display-max13h': 'none',
       overflow: 'visible'
     })
     .to('.max13h', {
       overflow: 'visible'
     }, '<')
-    .from('.scroll-down', {
-      duration: 0.3,
+    .from('.t-scrolldown', {
+      duration: 1,
       opacity: 0
     }, '<')
     .from('nav', {
@@ -118,19 +118,11 @@ onMounted(() => {
 </script>
 
 <style scoped>
-h1 {
-  position: relative;
-}
-
-h1 .letter {
-  display: inline-block;
-}
-
 .max13h::after {
   content: '';
   position: absolute;
-  bottom: var(--bottom-circle);
-  display: var(--display-circle);
+  bottom: var(--bottom-max13h);
+  display: var(--display-max13h);
   left: 50%;
   transform: translateX(-50%);
   border-radius: 100%;
