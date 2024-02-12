@@ -1,48 +1,22 @@
 <template>
   <div>
     <div class="divider-block-lg bg-dark"></div>
-    <div class="t-heading relative leading-none">
-      <h2 ref="discoverprojects" class="
-        t-discoverprojects
-        ms-4
-        text-big2
-        mix-blend-difference
-        text-light
-        font-medium
-      ">
+
+    <div class="t-group-dicoverprojects relative leading-none">
+      <h2 ref="discoverprojects" class="t-discoverprojects ms-4 mix-blend-difference text-light inline-block">
         Discover my
         <br>
-        projects
+        <span class="text-light mix-blend-difference">projects</span>
       </h2>
     </div>
 
     <div class="divider-block-sm"></div>
 
-    <div
-      class="
-        t-group-projects
-        flex
-        flex-col
-        items-center
-        sm:items-start
-        sm:flex-row
-        sm:flex-nowrap
-        sm:overflow-x-scroll
-        p-4
-      "
-    >
+    <div class="t-group-projects flex flex-col items-center sm:items-start sm:flex-row sm:flex-nowrap sm:overflow-x-scroll overflow-y-auto p-4">
       <div
-        v-for="(project, index) in projects"
-        :key="index"
-        class="
-          t-project
-          relative
-          w-[90vw]
-          h-[90vw]
-          mt-4
-          overflow-hidden
-          rounded-2xl
-          group
+        v-for="(project, projectIndex) in projects"
+        :key="projectIndex"
+        class="t-project relative w-[90vw] h-[90vw] mt-4 overflow-hidden rounded-2xl group
           sm:min-w-[75vw]
           sm:h-[75vw]
           md:min-w-[60vh]
@@ -54,15 +28,7 @@
         "
         @click="openModal(project.name)"
       >
-        <NuxtImg
-          :src="project.mainImage"
-          class="
-            w-[150%]
-            transition-all
-            blur-sm
-            group-hover:blur-[2px]
-            group-hover:scale-105
-        "/>
+        <NuxtImg :src="project.mainImage" class="w-[150%] transition-all blur-sm group-hover:blur-[2px] group-hover:scale-105" />
         <div class="transition-all group-hover:bg-zinc-900 w-full h-full bg-dark absolute top-0 left-0 opacity-50"></div>
         <h3 class="transition-all group-hover:scale-105   absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-big5 text-light w-full text-center">{{ project.name }}</h3>
 
@@ -95,17 +61,17 @@
                 >
                   <DialogPanel class="bg-dark rounded-2xl h-[90vh] w-[90vw] shadow-2xl shadow-dark/50 overflow-y-scroll flex flex-col">
                     <div class="flex-grow p-8 flex flex-col">
-                      <h3 class="text-light text-big3 leading-none">{{ project.name }}</h3>
-                      <p class="text-light my-4 lg:text-xl">{{ project.description }}</p>
+                      <DialogTitle as="h4" class="text-light text-big3 font-semibold leading-none">{{ project.name }}</DialogTitle>
+                      <DialogDescription class="text-light my-4 lg:text-xl">{{ project.description }}</DialogDescription>
 
                       <div class="flex justify-start items-center overflow-y-scroll my-2">
-                        <NuxtLink v-for="(techno, technoIndex) in project.stack" :key="technoIndex" :to="techno.link" target="_blank" class="me-2 last:me-0">
+                        <NuxtLink v-for="(techno, technoIndex) in project.stack" :key="technoIndex" :to="techno.link" target="_blank" :tabindex="2 + technoIndex" class="me-2 last:me-0">
                           <Icon v-if="techno.isIcon" :name="techno.icon" size="1.5rem" :class="techno.class" />
                           <NuxtImg v-else :src="techno.imageLink" :alt="`Icon of ${techno.name}`" :class="techno.class" />
                         </NuxtLink>
                       </div>
 
-                      <NuxtLink :to="project.link" target="_blank" class="bg-gray-300 text-dark md:text-xl px-4 py-2 rounded-3xl w-fit mt-4">
+                      <NuxtLink :to="project.link" target="_blank" tabindex="1" class="bg-gray-300 text-dark md:text-xl px-4 py-2 rounded-3xl w-fit mt-4">
                         {{ project.textLink }}
                       </NuxtLink>
                     </div>
@@ -329,46 +295,46 @@ onMounted(() => {
   actualURL.value = document.URL
   splitLettersInHTML(discoverprojects, 't-discoverprojects-letters text-light')
 
-  gsap.timeline()
-    .from('.t-discoverprojects', {
-      scrollTrigger: {
-        trigger: '.t-heading',
-        start: '-200 55%',
-        end: 'top 55%',
-        scrub: 1.5,
-      },
-      opacity: 0,
-      scale: 3,
-      xPercent: 100
-    })
-    .from('.t-discoverprojects-letters', {
-      scrollTrigger: {
-        trigger: '.t-heading',
-        start: '-200 55%',
-        end: 'top 55%',
-        scrub: 1.5,
-      },
-      filter: 'blur(10px)',
-      stagger: 0.1,
-    })
-    .from('.t-project', {
-      scrollTrigger: {
-        trigger: '.t-group-projects',
-        start: '-200 55%',
-        end: '100 55%',
-        scrub: 1.5,
-      },
-      yPercent: 300,
-      opacity: 0,
-      filter: 'blur(10px)',
-      stagger: 0.2
-    })
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: '.t-group-dicoverprojects',
+      start: 'top 80%',
+    }
+  })
+  .from('.t-discoverprojects', {
+    duration: 2,
+    ease: "power4.out",
+    opacity: 0,
+    scale: 3,
+    xPercent: 100
+  }, 0)
+  .from('.t-discoverprojects-letters', {
+    duration: 1,
+    filter: 'blur(10px)',
+    stagger: 0.1,
+  }, 0)
+
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: '.t-group-projects',
+      start: 'top 80%',
+    },
+  })
+  .from('.t-project', {
+    yPercent: 200,
+    xPercent: 200,
+    duration: 2,
+    ease: 'power4.out',
+    opacity: 0,
+    filter: 'blur(10px)',
+    stagger: 0.3
+  })
 })
 
 </script>
 
 <style scoped>
-.t-heading:after {
+.t-group-dicoverprojects:after {
   content: '';
   @apply bg-dark absolute top-0 left-0 rounded-b-3xl w-full h-[26%] -z-10 lg:h-[50%]
 }

@@ -28,7 +28,7 @@
     <div class="t-group-proficientin relative">
       <p class="t-proficientin text-big4 text-center mix-blend-difference text-light">Proficient in...</p>
     </div>
-    <div class="divider-block-md bg-dark"></div>
+    <div class="divider-block-lg bg-dark"></div>
   </section>
 </template>
 
