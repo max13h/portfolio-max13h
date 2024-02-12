@@ -48,21 +48,27 @@ onMounted(() => {
       trigger: '.t-group-mynameis',
       start: 'top 80%',
       end: 'bottom 80%',
-      scrub: 1.5,
     },
+    autoRemoveChildren: true
   })
   .from('.t-mynameis', {
+    duration: 2,
+    ease: "power4.out",
     opacity: 0,
     filter: "blur(10px)",
     xPercent: 50,
     yPercent: -500,
   })
   .from('.t-imageofme', {
+    duration: 2,
+    ease: "power4.out",
     opacity: 0,
     filter: "blur(10px)",
     yPercent: -500,
-  }, '<')
+  }, '<+=0.5')
   .from('html', {
+    duration: 5,
+    ease: "power4.out",
     '--opacity-land1': 0,
     '--blur-land1': 'blur(10px)',
   }, '<')
@@ -72,28 +78,36 @@ onMounted(() => {
       trigger: '.t-group-imajuniorwebdeveloper',
       start: 'top 80%',
       end: 'bottom 80%',
-      scrub: 1.5,
     },
+    autoRemoveChildren: true
   })
   .from('.t-imajunior', {
+    duration: 2,
+    ease: "power4.out",
     xPercent: -100,
     opacity: 0,
     filter: "blur(10px)",
-  }, '<')
+  })
   .from('.t-webdeveloper-letters', {
+    duration: 2,
+    ease: "power4.out",
     x: (index, target) => {
-      const obj = {}
+      const obj: any = {}
       for (let i = 0; i <= 11; i++) {
         obj[i] = 500 - (i / 11) * 1000;
       }
       return `${obj[index]}%`
     },
     filter: 'blur(10px)',
-  }, '<')
+  }, '<+=0.5')
   .from('.t-webdeveloper', {
+    duration: 2,
+    ease: "power4.out",
     opacity: 0
   }, '<')
   .from('html', {
+    duration: 5,
+    ease: "power4.out",
     '--opacity-land2': 0,
     '--blur-land2': 'blur(10px)',
   }, '<')
@@ -104,8 +118,10 @@ onMounted(() => {
       trigger: '.t-group-proficientin',
       start: 'top 80%',
       end: 'bottom 80%',
-      scrub: 1.5,
+      markers: true,
     },
+    duration: 2,
+    ease: "power4.out",
     yPercent: -200,
     filter: 'blur(10px)',
     opacity: 0
