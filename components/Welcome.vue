@@ -34,7 +34,6 @@ onMounted(() => {
       start: '60% center',
       end: '+=300px',
       scrub: 1.5,
-      markers: true
     },
     yPercent: -200,
     xPercent: (index) => {
@@ -62,7 +61,7 @@ onMounted(() => {
     opacity: 0
   })
 
-  gsap.timeline().delay(2.5)
+  gsap.timeline({ autoRemoveChildren: true, delay: 2.5 })
     .from('.t-helloimmax13h-letters', {
       xPercent: 5000,
       duration: 1,
