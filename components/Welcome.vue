@@ -28,13 +28,15 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
 
-  gsap.to('.t-helloimmax13h-letters', {
+  gsap.timeline({
     scrollTrigger: {
       trigger: '.t-welcome',
       start: '60% center',
       end: '+=300px',
       scrub: 1.5,
     },
+  })
+  .to('.t-helloimmax13h-letters', {
     yPercent: -200,
     xPercent: (index) => {
       const obj: any = {}
@@ -50,13 +52,7 @@ onMounted(() => {
     },
     opacity: 0
   })
-  gsap.to('.t-scrolldown', {
-    scrollTrigger: {
-      trigger: '.t-welcome',
-      start: '60% center',
-      end: '+=300px',
-      scrub: 1.5,
-    },
+  .to('.t-scrolldown', {
     yPercent: -500,
     opacity: 0
   })
