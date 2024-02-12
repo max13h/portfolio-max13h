@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section>
     <div class="t-group-mynameis text-end relative">
       <p class="t-mynameis mix-blend-difference text-light inline-block text-big3 me-4">
         My name is <br/>
@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <div class="divider-block-lg"></div>
+    <div class="divider-block-screen"></div>
 
     <div class="t-group-imajuniorwebdeveloper relative flex flex-col">
       <p class="t-imajunior mix-blend-difference text-light text-big4 inline-block ms-4">
@@ -23,13 +23,13 @@
       <p ref="webdeveloperLetters" class="t-webdeveloper mix-blend-difference text-light font-bold text-big3 inline-block ms-4">Web Developer</p>
     </div>
 
-    <div class="divider-block-lg"></div>
+    <div class="divider-block-screen"></div>
 
     <div class="t-group-proficientin relative">
       <p class="t-proficientin text-big4 text-center mix-blend-difference text-light">Proficient in...</p>
     </div>
     <div class="divider-block-lg bg-dark"></div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -46,7 +46,6 @@ onMounted(() => {
   gsap.timeline({
     scrollTrigger: {
       trigger: '.t-group-mynameis',
-      start: 'top 80%',
     },
     autoRemoveChildren: true
   })
@@ -75,7 +74,6 @@ onMounted(() => {
   gsap.timeline({
     scrollTrigger: {
       trigger: '.t-group-imajuniorwebdeveloper',
-      start: 'top 80%',
     },
     autoRemoveChildren: true
   })
@@ -114,7 +112,6 @@ onMounted(() => {
   gsap.from('.t-proficientin', {
     scrollTrigger: {
       trigger: '.t-group-proficientin',
-      start: 'top 80%',
     },
     duration: 2,
     ease: "power4.out",

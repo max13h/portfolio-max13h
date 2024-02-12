@@ -1,5 +1,5 @@
 <template>
-  <section id="welcome" class="t-welcome relative h-dvh flex justify-center items-center">
+  <header id="welcome" class="t-welcome relative h-dvh flex justify-center items-center">
     <h1 class="text-big1 flex flex-col items-center">
       <span :ref="letters[0]">Hello, I'm </span>
       <span :ref="letters[1]" class="t-max13h relative w-full text-center">max13h</span>
@@ -8,7 +8,7 @@
       <p>Scroll down !</p>
       <Icon name="fluent:arrow-circle-down-12-filled" size="2rem" class="filter-dark"  />
     </div>
-  </section>
+  </header>
 </template>
 
 <script setup lang="ts">

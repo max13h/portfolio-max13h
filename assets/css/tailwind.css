@@ -80,6 +80,10 @@ body {
   font-family: luxeuno, sans-serif;
 }
 
+.divider-block-screen {
+  @apply
+    h-[50vh]
+}
 .divider-block-lg {
   @apply
     h-56 sm:h-64 md:h-72 lg:h-80 xl:h-96

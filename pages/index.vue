@@ -1,5 +1,5 @@
 <template>
-  <div class="relative overflow-x-hidden">
+  <main class="relative overflow-x-hidden">
     <Entrance v-if="gsapStore.isEntrance" />
     <Navbar />
     <Welcome />
@@ -10,7 +10,7 @@
     <MyProjects />
     <Contact />
     <Footer />
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">
