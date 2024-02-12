@@ -1,6 +1,9 @@
 <template>
-  <nav class="navbar">
-    <NuxtLink class="button" @click="lenisStore.lenis.scrollTo('#contact')">
+  <nav class="fixed w-full flex justify-end items-center mix-blend-difference has-[:hover]:mix-blend-normal font-light z-50">
+    <NuxtLink
+      class="button transition-all duration-150 rounded-3xl hover:scale-105 hover:z-[100] hover:font-semibold py-2 px-4 mt-4 me-4 cursor-pointer relative text-light hover:text-dark hover:animate-[text_5s_linear_infinite]"
+      @click="lenisStore.lenis.scrollTo('#contact')"
+    >
       Contact
     </NuxtLink>
   </nav>
@@ -11,40 +14,6 @@ const lenisStore = useLenisStore()
 </script>
 
 <style scoped>
-.navbar {
-  @apply
-  fixed
-  w-full
-  flex
-  justify-end
-  items-center
-  mix-blend-difference
-  has-[:hover]:mix-blend-normal
-  font-light
-  z-50;
-}
-.button {
-  @apply
-    transition-all
-    duration-150
-    rounded-3xl
-    hover:scale-105
-    hover:z-[100]
-    hover:font-semibold
-    py-2
-    px-4
-    mt-4
-    me-4
-    cursor-pointer
-    relative
-    text-light
-}
-
-.button:hover {
-  animation: text 5s linear infinite;
-  @apply text-dark
-}
-
 .button:before {
   content: '';
   @apply
