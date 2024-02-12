@@ -67,8 +67,10 @@ html {
   --blur-land3: blur(0px);
   --opacity-land4: 1;
   --blur-land4: blur(0px);
+  --width-land4: 100%;
   --opacity-land5: 1;
   --blur-land5: blur(0px);
+  --height-land5: 94%;
 }
 
 * {

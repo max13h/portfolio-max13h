@@ -1,17 +1,26 @@
 @layer base {
-  h1, h2, h3, h4, h5, h6 {
+  h1 {
     @apply font-bold;
   }
 
+  h2, h3 {
+    @apply font-semibold
+  }
+
+  h1,
   .text-big1 {
     font-size: calc(2rem + 10vw)
   }
+
+  h2,
   .text-big2 {
     font-size: calc(1.5rem + 8vw)
   }
   .text-big3 {
     font-size: calc(1.25rem + 6vw)
   }
+
+  h3,
   .text-big4 {
     font-size: calc(1.15rem + 4vw)
   }
