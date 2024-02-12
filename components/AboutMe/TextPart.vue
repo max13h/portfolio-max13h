@@ -1,20 +1,11 @@
 <template>
   <div>
-    <div class="
-      t-group-mynameis
-    ">
-      <p class="t-mynameis mix-blend-difference text-light inline-block pe-4 text-big3 text-nowrap text-end w-full">
+    <div class="t-group-mynameis text-end relative">
+      <p class="t-mynameis mix-blend-difference text-light inline-block text-big3 me-4">
         My name is <br/>
-        <span class="font-bold tracking-widest text-light" style="font-family: 'farnhamtext-regularlfregular';">Maxime</span>
+        <span class="font-bold tracking-widst text-light" style="font-family: 'farnhamtext-regularlfregular';">Maxime</span>
       </p>
-      <div class="
-        t-imageofme
-        rounded-full
-        overflow-hidden
-        flex
-        justify-center
-        items-center
-        absolute
+      <div class="t-imageofme rounded-full overflow-hidden flex justify-center items-center absolute
         top-full md:top-2/3
         left-2 sm:left-1/3
         w-32 sm:w-40 md:w-48 lg:w-56 xl:w-64
@@ -25,22 +16,16 @@
 
     <div class="divider-block-lg"></div>
 
-    <div class="t-group-imajuniorwebdeveloper">
-      <p class="
-        t-imajunior
-        text-big4
-        mix-blend-difference
-        text-light
-        ms-4
-      ">
+    <div class="t-group-imajuniorwebdeveloper relative flex flex-col">
+      <p class="t-imajunior mix-blend-difference text-light text-big4 inline-block ms-4">
         I'm a junior
       </p>
-      <p ref="webdeveloperLetters" class="t-webdeveloper mix-blend-difference w-full relative inline-block text-big4 font-bold !text-big3 ms-4 mt-4">Web Developer</p>
+      <p ref="webdeveloperLetters" class="t-webdeveloper mix-blend-difference text-light font-bold text-big3 inline-block ms-4">Web Developer</p>
     </div>
 
     <div class="divider-block-lg"></div>
 
-    <div class="t-group-proficientin">
+    <div class="t-group-proficientin relative">
       <p class="t-proficientin text-big4 text-nowrap text-center mix-blend-difference text-light">Proficient in...</p>
     </div>
     <div class="divider-block-sm bg-dark"></div>
@@ -58,107 +43,78 @@ onMounted(() => {
 
   splitLettersInHTML(webdeveloperLetters, 't-webdeveloper-letters text-light')
 
-  gsap.timeline()
-    .from('.t-mynameis', {
-      scrollTrigger: {
-        trigger: '.t-group-mynameis',
-        start: '-200px 45%',
-        end: 'top 45%',
-        scrub: 1.5,
-      },
-      opacity: 0,
-      filter: "blur(10px)",
-      xPercent: 10,
-      yPercent: -300,
-    })
-    .from('.t-imageofme', {
-      scrollTrigger: {
-        trigger: '.t-group-mynameis',
-        start: '-200px 55%',
-        end: 'bottom 55%',
-        scrub: 1.5,
-      },
-      opacity: 0,
-      yPercent: -1000,
-      filter: "blur(10px)",
-    })
-    .from('html', {
-      scrollTrigger: {
-        trigger: '.t-group-mynameis',
-        start: '-200px 55%',
-        end: 'top 55%',
-        scrub: 1.5,
-      },
-      '--opacity-land1': 0,
-      '--blur-land1': 'blur(10px)',
-    })
-    .from('.t-imajunior', {
-      scrollTrigger: {
-        trigger: '.t-group-imajuniorwebdeveloper',
-        start: '-200px 55%',
-        end: 'top 55%',
-        scrub: 1.5,
-      },
-      xPercent: -100,
-      opacity: 0,
-      filter: "blur(10px)",
-    })
-    .from('.t-webdeveloper-letters', {
-      scrollTrigger: {
-        trigger: '.t-group-imajuniorwebdeveloper',
-        start: '-200 55%',
-        end: 'center 55%',
-        scrub: 1.5,
-      },
-      x: (index, target) => {
-        const obj = {}
-        for (let i = 0; i <= 11; i++) {
-          obj[i] = 500 - (i / 11) * 1000;
-        }
-        return `${obj[index]}%`
-      },
-      filter: 'blur(10px)',
-    })
-    .from('.t-webdeveloper', {
-      scrollTrigger: {
-        trigger: '.t-group-imajuniorwebdeveloper',
-        start: '-200 55%',
-        end: 'center 55%',
-        scrub: 1.5,
-      },
-      opacity: 0
-    })
-    .from('html', {
-      scrollTrigger: {
-        trigger: '.t-group-imajuniorwebdeveloper',
-        start: '-200px 55%',
-        end: 'top 55%',
-        scrub: 1.5,
-      },
-      '--opacity-land2': 0,
-      '--blur-land2': 'blur(10px)',
-    })
-    .from('.t-proficientin', {
-      scrollTrigger: {
-        trigger: '.t-group-proficientin',
-        start: '-200px 55%',
-        end: 'top 55%',
-        scrub: 1.5,
-      },
-      yPercent: -200,
-      filter: 'blur(10px)',
-      opacity: 0
-    })
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: '.t-group-mynameis',
+      start: 'top 80%',
+      end: 'bottom 80%',
+      scrub: 1.5,
+    },
+  })
+  .from('.t-mynameis', {
+    opacity: 0,
+    filter: "blur(10px)",
+    xPercent: 50,
+    yPercent: -500,
+  })
+  .from('.t-imageofme', {
+    opacity: 0,
+    filter: "blur(10px)",
+    yPercent: -500,
+  }, '<')
+  .from('html', {
+    '--opacity-land1': 0,
+    '--blur-land1': 'blur(10px)',
+  }, '<')
+
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: '.t-group-imajuniorwebdeveloper',
+      start: 'top 80%',
+      end: 'bottom 80%',
+      scrub: 1.5,
+    },
+  })
+  .from('.t-imajunior', {
+    xPercent: -100,
+    opacity: 0,
+    filter: "blur(10px)",
+  }, '<')
+  .from('.t-webdeveloper-letters', {
+    x: (index, target) => {
+      const obj = {}
+      for (let i = 0; i <= 11; i++) {
+        obj[i] = 500 - (i / 11) * 1000;
+      }
+      return `${obj[index]}%`
+    },
+    filter: 'blur(10px)',
+  }, '<')
+  .from('.t-webdeveloper', {
+    opacity: 0
+  }, '<')
+  .from('html', {
+    '--opacity-land2': 0,
+    '--blur-land2': 'blur(10px)',
+  }, '<')
+
+
+  gsap.from('.t-proficientin', {
+    scrollTrigger: {
+      trigger: '.t-group-proficientin',
+      start: 'top 80%',
+      end: 'bottom 80%',
+      scrub: 1.5,
+    },
+    yPercent: -200,
+    filter: 'blur(10px)',
+    opacity: 0
+  })
 })
 </script>
 
 <style scoped>
 
-.t-group-mynameis,
-.t-group-imajuniorwebdeveloper,
-.t-group-proficientin {
-  @apply relative
-}
 .t-group-mynameis:after {
   content: '';
   filter: var(--blur-land1);
