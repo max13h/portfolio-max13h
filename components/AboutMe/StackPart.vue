@@ -12,7 +12,7 @@
       </div>
 
       <div class="t-group-backend-technologies flex flex-wrap overflow-hidden justify-evenly items-center p-4 mt-4
-        max-w-[90vw]">
+        w-[90vw] max-w-[21rem] sm:max-w-[90vw]">
         <div v-for="(technologie, index) in backEndTechnologies" :key="index" class="t-backend-icon relative m-2 sm:mx-4">
           <Icon
             :name="technologie.icon"
@@ -103,7 +103,7 @@
       </div>
 
       <div class="t-group-frontend-technologies flex flex-wrap overflow-hidden justify-evenly items-center p-4 mt-4
-        max-w-[90vw]">
+        w-[90vw] max-w-[21rem] sm:max-w-[90vw]">
         <div v-for="(technologie, index) in frontEndTechnologies" :key="index" class="t-frontend-icon relative m-2 sm:mx-4">
           <Icon
             :name="technologie.icon"
@@ -301,7 +301,7 @@ onMounted(() => {
     filter: 'blur(10px)',
     opacity: 0,
     yPercent: 200,
-    duration: 2,
+    duration: 1.5,
     stagger: 0.3
   }, '>-=1')
 
@@ -341,7 +341,7 @@ onMounted(() => {
     filter: 'blur(10px)',
     opacity: 0,
     yPercent: -200,
-    duration: 2,
+    duration: 1.5,
     stagger: 0.3
   }, '>-=1')
 })
