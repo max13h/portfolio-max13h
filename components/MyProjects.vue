@@ -3,10 +3,9 @@
     <div class="divider-block-lg bg-dark"></div>
 
     <div class="t-group-dicoverprojects relative leading-none">
-      <h2 ref="discoverprojects" class="t-discoverprojects ms-4 mix-blend-difference text-light inline-block">
-        Discover my
-        <br>
-        <span class="text-light mix-blend-difference">projects</span>
+      <h2 class="t-discoverprojects ms-4 mix-blend-difference text-light inline-block">
+        <span :ref="discoverprojects[0]" class="text-light ">Discover my </span><br class="lg:hidden">
+        <span :ref="discoverprojects[1]" class="text-light ">projects</span>
       </h2>
     </div>
 
@@ -60,12 +59,15 @@
                   leave-to="opacity-0 scale-95"
                 >
                   <DialogPanel class="bg-dark rounded-2xl h-[90vh] w-[90vw] shadow-2xl shadow-dark/50 overflow-y-scroll flex flex-col">
+                    <div class="w-full flex justify-end">
+                      <Icon name="fluent:dismiss-12-regular" size="1rem" class="filter-light mt-4 me-4" @click="closeModal" tabindex="2" />
+                    </div>
                     <div class="flex-grow p-8 flex flex-col">
                       <DialogTitle as="h4" class="text-light text-big3 font-semibold leading-none">{{ project.name }}</DialogTitle>
                       <DialogDescription class="text-light my-4 lg:text-xl">{{ project.description }}</DialogDescription>
 
                       <div class="flex justify-start items-center overflow-y-scroll my-2">
-                        <NuxtLink v-for="(techno, technoIndex) in project.stack" :key="technoIndex" :to="techno.link" target="_blank" :tabindex="2 + technoIndex" class="me-2 last:me-0">
+                        <NuxtLink v-for="(techno, technoIndex) in project.stack" :key="technoIndex" :to="techno.link" target="_blank" :tabindex="3 + technoIndex" class="me-2 last:me-0">
                           <Icon v-if="techno.isIcon" :name="techno.icon" size="1.5rem" :class="techno.class" />
                           <NuxtImg v-else :src="techno.imageLink" :alt="`Icon of ${techno.name}`" :class="techno.class" />
                         </NuxtLink>
@@ -287,13 +289,14 @@ function openModal(technologie: string) {
 }
 
 const actualURL = ref()
-const discoverprojects = ref()
+const discoverprojects = [ref(), ref()]
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
   actualURL.value = document.URL
-  splitLettersInHTML(discoverprojects, 't-discoverprojects-letters text-light')
+
+  discoverprojects.map((el) => splitLettersInHTML(el, 't-discoverprojects-letters text-light'))
 
   gsap.timeline({
     scrollTrigger: {
