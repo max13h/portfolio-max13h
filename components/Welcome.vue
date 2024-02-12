@@ -31,12 +31,15 @@ onMounted(() => {
   gsap.timeline({
     scrollTrigger: {
       trigger: '.t-welcome',
-      start: '60% center',
-      end: '+=300px',
-      scrub: 1.5,
+      start: 'bottom 90%',
+      end: 'bottom 90%',
+      toggleActions: 'play none reverse none',
+      markers: true
     },
   })
   .to('.t-helloimmax13h-letters', {
+    duration: 1,
+    ease: "power4.in",
     yPercent: -200,
     xPercent: (index) => {
       const obj: any = {}
@@ -50,12 +53,15 @@ onMounted(() => {
       }
       return obj[index]
     },
-    opacity: 0
-  })
+    opacity: 0,
+  }, 0)
   .to('.t-scrolldown', {
-    yPercent: -500,
-    opacity: 0
-  }, '<')
+    duration: 1,
+    ease: "power4.in",
+    yPercent: -100,
+    opacity: 0,
+  }, 0)
+
 
   gsap.timeline({ autoRemoveChildren: true, delay: 2.5 })
     .from('.t-helloimmax13h-letters', {
