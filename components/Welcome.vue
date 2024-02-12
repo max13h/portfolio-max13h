@@ -1,8 +1,8 @@
 <template>
-  <div class="relative h-svh flex justify-center items-center">
+  <div class="t-welcome relative h-svh flex justify-center items-center">
     <h1 class="text-big1 flex flex-col items-center">
       <span :ref="letters[0]">Hello, I'm </span>
-      <span :ref="letters[1]" class="max13h relative">max13h</span>
+      <span :ref="letters[1]" class="t-max13h relative">max13h</span>
     </h1>
     <div class="t-scrolldown absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center">
       <p>Scroll down !</p>
@@ -30,10 +30,11 @@ onMounted(() => {
 
   gsap.to('.t-helloimmax13h-letters', {
     scrollTrigger: {
-      trigger: '.t-helloimmax13h-letters',
-      start: 'bottom center',
+      trigger: '.t-welcome',
+      start: '60% center',
       end: '+=300px',
       scrub: 1.5,
+      markers: true
     },
     yPercent: -200,
     xPercent: (index) => {
@@ -52,9 +53,9 @@ onMounted(() => {
   })
   gsap.to('.t-scrolldown', {
     scrollTrigger: {
-      trigger: '.t-helloimmax13h-letters',
-      start: 'bottom center',
-      end: '+=200px',
+      trigger: '.t-welcome',
+      start: '60% center',
+      end: '+=300px',
       scrub: 1.5,
     },
     yPercent: -500,
@@ -80,7 +81,7 @@ onMounted(() => {
       delay: 0.6,
       stagger: 0.06,
     }, '<')
-    .to('.max13h', {
+    .to('.t-max13h', {
       overflow: 'hidden'
     })
     .to('html', {
@@ -90,7 +91,7 @@ onMounted(() => {
       duration: 0.4,
       '--bottom-max13h': -50
     }, '<')
-    .to('.max13h', {
+    .to('.t-max13h', {
       duration: 0.1,
       fontFamily: 'farnhamtext-regularlfregular',
     })
@@ -103,7 +104,7 @@ onMounted(() => {
       '--display-max13h': 'none',
       overflow: 'visible'
     })
-    .to('.max13h', {
+    .to('.t-max13h', {
       overflow: 'visible'
     }, '<')
     .from('.t-scrolldown', {
@@ -118,7 +119,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.max13h::after {
+.t-max13h::after {
   content: '';
   position: absolute;
   bottom: var(--bottom-max13h);
