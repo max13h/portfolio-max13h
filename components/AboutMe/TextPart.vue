@@ -28,7 +28,7 @@
     <div class="t-group-proficientin relative">
       <p class="t-proficientin text-big4 text-center mix-blend-difference text-light">Proficient in...</p>
     </div>
-    <div class="divider-block-lg bg-dark"></div>
+    <div class="divider-block-md bg-dark"></div>
   </section>
 </template>
 
@@ -55,14 +55,14 @@ onMounted(() => {
     opacity: 0,
     filter: "blur(10px)",
     xPercent: 50,
-    yPercent: -500,
+    yPercent: -300,
   })
   .from('.t-imageofme', {
     duration: 2,
     ease: "power4.out",
     opacity: 0,
     filter: "blur(10px)",
-    yPercent: -500,
+    yPercent: -300,
   }, '<+=0.5')
   .from('html', {
     duration: 5,
