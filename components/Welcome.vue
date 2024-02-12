@@ -1,5 +1,5 @@
 <template>
-  <div class="relative h-dvh flex justify-center items-center">
+  <div class="relative h-svh flex justify-center items-center">
     <h1 class="text-big1 flex flex-col items-center">
       <span :ref="letters[0]">Hello, I'm </span>
       <span :ref="letters[1]" class="max13h relative">max13h</span>
