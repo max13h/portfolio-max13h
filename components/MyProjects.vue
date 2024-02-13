@@ -3,7 +3,7 @@
     <div class="divider-block-lg bg-dark"></div>
 
     <div class="t-group-dicoverprojects relative leading-none">
-      <h2 class="t-discoverprojects ms-4 mix-blend-difference text-light inline-block">
+      <h2 ref="discoverprojectsheading" class="t-discoverprojects ms-4 mix-blend-difference text-light inline-block">
         <span :ref="discoverprojects[0]" class="text-light ">Discover my </span><br class="lg:hidden">
         <span :ref="discoverprojects[1]" class="text-light ">projects</span>
       </h2>
@@ -290,6 +290,7 @@ function openModal(technologie: string) {
 
 const actualURL = ref()
 const discoverprojects = [ref(), ref()]
+const discoverprojectsheading = ref()
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
@@ -311,9 +312,7 @@ onMounted(() => {
     opacity: 0,
     scale: 3,
     xPercent: 100,
-    onComplete: () => {
-      discoverprojects.map((el) => el.value.classList.add('no-translate3D'))
-    }
+    onComplete: () => {discoverprojectsheading.value.classList.add('no-translate3D')}
   }, 0)
   .from('.t-discoverprojects-letters', {
     duration: 1,
