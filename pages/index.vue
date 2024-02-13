@@ -7,7 +7,7 @@
       <AboutMeTextPart />
       <AboutMeStackPart />
     </section>
-    <MyProjects />
+    <Projects />
     <Contact />
     <Footer />
   </main>
