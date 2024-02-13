@@ -2,21 +2,22 @@
   <div
     v-for="(project, projectIndex) in projects"
     :key="projectIndex"
-    class="t-project relative w-[90vw] h-[90vw] mt-4 overflow-hidden rounded-2xl group
-      sm:min-w-[75vw]
-      sm:h-[75vw]
-      md:min-w-[60vh]
-      md:h-[60vh]
-      sm:me-8
-      sm:last:me-0
-      sm:mt-0
+    class="t-project flex-shrink-0 relative overflow-hidden rounded-2xl group
+      w-[90vw]
+      h-[90vw]
+      sm:w-[50vh]
+      sm:h-[50vh]
+      me-8
+      last:me-0
       cursor-pointer
+      border-2
+      border-dark
     "
     @click="openModal(project.name)"
   >
-    <NuxtImg :src="project.mainImage" class="w-[150%] transition-all blur-sm group-hover:blur-[2px] group-hover:scale-105" />
-    <div class="transition-all group-hover:bg-zinc-900 w-full h-full bg-dark absolute top-0 left-0 opacity-50"></div>
-    <h3 class="transition-all group-hover:scale-105   absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-big5 text-light w-full text-center">{{ project.name }}</h3>
+    <NuxtImg :src="project.mainImage" class="w-[150%] transition-all duration-500 blur-2xl group-hover:blur-0 group-hover:scale-105" />
+    <div class="transition-all duration-500 group-hover:bg-zinc-900 w-full h-full group-hover:h-0 bg-dark absolute bottom-0 left-0 opacity-50"></div>
+    <h3 class="transition-all group-hover:scale-105 group-hover:opacity-0 w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-big5 text-light text-center ">{{ project.name }}</h3>
 
     <TransitionRoot appear :show="modalOpened === project.name">
       <Dialog @close="closeModal" class="relative z-[400]">
@@ -289,4 +290,4 @@ onMounted(() => {
 </script>
 
 <style scoped>
-  </style>
+</style>

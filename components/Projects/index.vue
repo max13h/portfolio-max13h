@@ -9,9 +9,7 @@
       </h2>
     </div>
 
-    <div class="divider-block-sm"></div>
-
-    <div class="t-group-projects flex flex-col items-center sm:items-start sm:flex-row sm:flex-nowrap sm:overflow-x-scroll overflow-y-auto p-4">
+    <div class="t-group-projects flex items-start overflow-y-auto p-4 mt-24">
       <ProjectsCards />
     </div>
   </div>
