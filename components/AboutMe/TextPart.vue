@@ -17,7 +17,7 @@
     <div class="divider-block-screen"></div>
 
     <div class="t-group-imajuniorwebdeveloper relative flex flex-col">
-      <p class="t-imajunior mix-blend-difference text-light text-big4 inline-block ms-4">
+      <p ref="imajunior" class="t-imajunior mix-blend-difference text-light text-big4 inline-block ms-4">
         I'm a junior
       </p>
       <p ref="webdeveloperLetters" class="t-webdeveloper mix-blend-difference text-light font-bold text-big3 inline-block ms-4">Web Developer</p>
@@ -26,7 +26,7 @@
     <div class="divider-block-screen"></div>
 
     <div class="t-group-proficientin relative">
-      <p class="t-proficientin text-big4 text-center mix-blend-difference text-light">Proficient in...</p>
+      <p ref="proficientin" class="t-proficientin text-big4 text-center mix-blend-difference text-light">Proficient in...</p>
     </div>
     <div class="divider-block-lg bg-dark"></div>
   </section>
@@ -36,13 +36,21 @@
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
-const webdeveloperLetters = ref(null)
 const mynameis = ref()
+const imajunior = ref()
+const webdeveloperLetters = ref()
+const proficientin = ref()
+
+
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
   splitLettersInHTML(webdeveloperLetters, 't-webdeveloper-letters text-light')
+
   mynameis.value.focus
+  imajunior.value.focus
+  webdeveloperLetters.value.focus
+  proficientin.value.focus
 
   gsap.timeline({
     scrollTrigger: {
@@ -50,9 +58,6 @@ onMounted(() => {
       start: 'center 80%',
     },
     autoRemoveChildren: true,
-    onComplete: () => {
-      mynameis.value.classList.add('no-translate3D')
-    }
   })
   .from('.t-mynameis', {
     duration: 2,
@@ -61,6 +66,9 @@ onMounted(() => {
     filter: "blur(10px)",
     xPercent: -100,
     yPercent: -200,
+    onComplete: () => {
+      mynameis.value.classList.add('no-translate3D')
+    }
   })
   .from('.t-imageofme', {
     duration: 3,
@@ -89,6 +97,9 @@ onMounted(() => {
     xPercent: -100,
     opacity: 0,
     filter: "blur(10px)",
+    onComplete: () => {
+      imajunior.value.classList.add('no-translate3D')
+    }
   })
   .from('.t-webdeveloper-letters', {
     duration: 2,
@@ -105,7 +116,10 @@ onMounted(() => {
   .from('.t-webdeveloper', {
     duration: 2,
     ease: "power4.out",
-    opacity: 0
+    opacity: 0,
+    onComplete: () => {
+      webdeveloperLetters.value.classList.add('no-translate3D')
+    }
   }, '<')
   .from('html', {
     duration: 5,
@@ -124,7 +138,10 @@ onMounted(() => {
     ease: "power4.out",
     yPercent: -200,
     filter: 'blur(10px)',
-    opacity: 0
+    opacity: 0,
+    onComplete: () => {
+      proficientin.value.classList.add('no-translate3D')
+    }
   })
 })
 </script>
