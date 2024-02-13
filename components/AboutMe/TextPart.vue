@@ -20,7 +20,7 @@
       <p ref="imajunior" class="t-imajunior mix-blend-difference text-light text-big4 inline-block ms-4">
         I'm a junior
       </p>
-      <p ref="webdeveloperLetters" class="t-webdeveloper mix-blend-difference text-light font-bold text-big3 inline-block ms-4">Web Developer</p>
+      <p ref="webdeveloperLetters" class="t-webdeveloper mix-blend-difference text-light font-bold text-big3 inline-block ms-4 font-serif">Web Developer</p>
     </div>
 
     <div class="divider-block-screen"></div>

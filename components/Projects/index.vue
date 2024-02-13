@@ -5,7 +5,7 @@
     <div class="t-group-dicoverprojects relative leading-none">
       <h2 ref="discoverprojectsheading" class="t-discoverprojects ms-4 mix-blend-difference text-light inline-block">
         <span :ref="discoverprojects[0]" class="text-light ">Discover my </span><br class="lg:hidden">
-        <span :ref="discoverprojects[1]" class="text-light ">projects</span>
+        <span :ref="discoverprojects[1]" class="text-light font-serif block">projects</span>
       </h2>
     </div>
 
@@ -74,10 +74,6 @@ onMounted(() => {
 <style scoped>
 .t-group-dicoverprojects:after {
   content: '';
-  @apply bg-dark absolute top-0 left-0 rounded-b-3xl w-full h-[26%] -z-10 lg:h-[50%]
-}
-
-.filter-red {
-  filter: brightness(0) saturate(100%) invert(20%) sepia(84%) saturate(5919%) brightness(73%) contrast(120%);
+  @apply bg-dark absolute top-0 left-0 rounded-b-3xl w-full h-[26%] -z-10 lg:h-[30%]
 }
 </style>

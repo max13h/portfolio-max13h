@@ -49,18 +49,22 @@
                 <div class="w-full flex justify-end">
                   <Icon name="fluent:dismiss-12-regular" size="1rem" class="text-light mt-4 me-4" @click="closeModal" tabindex="2" />
                 </div>
-                <div class="flex-grow p-8 flex flex-col">
-                  <DialogTitle as="h4" class="text-light text-big3 font-semibold leading-none">{{ project.name }}</DialogTitle>
-                  <DialogDescription class="text-light my-4 lg:text-xl">{{ project.description }}</DialogDescription>
+                <div class="p-8 flex flex-col">
+                  <DialogTitle as="h4" class="text-light text-big3 font-semibold leading-none font-serif">
+                    {{ project.name }}
+                  </DialogTitle>
+                  <p class="text-light italic opacity-75">{{ project.date }}</p>
 
                   <div class="flex justify-start items-center my-2">
                     <NuxtLink v-for="(techno, technoIndex) in project.stack" :key="technoIndex" :to="techno.link" target="_blank" :tabindex="3 + technoIndex" class="me-2 last:me-0">
-                      <Icon v-if="techno.isIcon" :name="techno.icon" size="1.5rem" :class="techno.class" />
+                      <Icon v-if="techno.isIcon" :name="techno.icon" size="1.5rem" :color="techno.name === 'Ruby on Rails' ? 'red' : ''" :class="techno.class" />
                       <NuxtImg v-else :src="techno.imageLink" :alt="`Icon of ${techno.name}`" :class="techno.class" />
                     </NuxtLink>
                   </div>
 
-                  <NuxtLink :to="project.link" target="_blank" tabindex="1" class="bg-gray-300 text-dark md:text-xl px-4 py-2 rounded-3xl w-fit mt-4">
+                  <DialogDescription class="text-light my-4 lg:text-xl whitespace-pre-line">{{ project.description }}</DialogDescription>
+
+                  <NuxtLink :to="project.link" target="_blank" tabindex="1" class="btn-light">
                     {{ project.textLink }}
                   </NuxtLink>
                 </div>
@@ -93,8 +97,9 @@ import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle, Dial
 const projects = [
 {
     name: 'Early stage project',
+    date: 'November 2023 - now',
     mainImage: 'secretproject/logo_secretproject.png',
-    description: "The project has the ambition to become a SaaS. I started working on it on november 2023 but due to its early stage and the absence of a legally registered name, I wouldn't share too much information at this time.",
+    description: "Due to its early stage and the absence of a legally registered name, I am hesitant to share extensive information at this time. The project aspires to evolve into a Software as a Service (SaaS) platform. \nI began working on it in November 2023 and have recently completed the initial steps of my Minimum Viable Product (MVP). This project helped me discover the less glamorous aspects of the job, such as operational components and project architecture. \nWhile I acknowledge there are certain issues and imperfections, I am currently focused on building, learning, and presenting the project to potential future collaborators.",
     stack: [
       {
         name: 'Nuxt',
@@ -138,7 +143,7 @@ const projects = [
       },
     ],
     link: 'https://github.com/max13h/',
-    textLink: 'Check my GH instead',
+    textLink: 'Not the project, but you can check my github instead',
     images: [
       'secretproject/logo_secretproject.png',
       'secretproject/activity.png',
@@ -147,6 +152,7 @@ const projects = [
   },
   {
     name: 'The Favorite',
+    date: 'September 2023 - October 2023',
     mainImage: 'https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/competition.png',
     description: "The Favorite was my first team project. I led the development of the mobile web app in one month",
     stack: [
@@ -220,6 +226,7 @@ const projects = [
   },
   {
     name: 'Portfolio',
+    date: 'February 2024',
     mainImage: 'https://raw.githubusercontent.com/max13h/portfolio-max13h/master/public/portfolio-max13h.png',
     description: "This is the website you're currently on. I wanted my portfolio to be creative with animations, transitions and showcase my knowledge of CSS in global aspect.",
     stack: [
@@ -282,5 +289,4 @@ onMounted(() => {
 </script>
 
 <style scoped>
-
-</style>
+  </style>
