@@ -18,6 +18,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 const letters = [ref(), ref()]
 const gsapStore = useGsapStore()
+const lenisStore = useLenisStore()
 
 onMounted(() => {
   letters.map((el) => {
@@ -101,7 +102,10 @@ onMounted(() => {
   .to('html', {
     duration: 0.4,
     '--bottom-max13h': 100,
-    onComplete: () => { gsapStore.isWelcomed = true }
+    onComplete: () => {
+      gsapStore.isWelcomed = true
+      lenisStore.lenis.start()
+    }
   }, '<')
   .to('html', {
     '--display-max13h': 'none',

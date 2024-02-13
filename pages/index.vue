@@ -18,13 +18,10 @@ const gsapStore = useGsapStore()
 const lenisStore = useLenisStore()
 
 onMounted(() => {
-  watchEffect(() => {
-    if(gsapStore.isWelcomed && window.screen.width > 640) {
-      const lenis = useLenis()
+  const lenis = useLenis()
+  lenis.stop()
 
-      lenisStore.lenis = lenis
-    }
-  })
+  lenisStore.lenis = lenis
 })
 </script>
 
