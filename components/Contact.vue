@@ -24,7 +24,7 @@
             size="16rem"
             class="
               t-contact-icons
-              filter-light
+              text-light
               w-32 sm:w-36 md:w-40 lg:w-48 xl:w-56
               h-32 sm:h-36 md:h-4w-40 lg:h-48 xl:h-5w-56"
             />
@@ -35,8 +35,8 @@
             name="fluent:mail-48-filled"
             size="16rem"
             class="
+              text-light
               t-contact-icons
-              filter-light
               w-32 sm:w-36 md:w-40 lg:w-48 xl:w-56
               h-32 sm:h-36 md:h-4w-40 lg:h-48 xl:h-5w-56"
               @click="copyContent"
@@ -72,8 +72,8 @@
               >
                 <DialogPanel class="bg-dark p-8 rounded-2xl">
                   <p class="text-light">
+                    <Icon :name="isMailCopied ? 'fluent:checkmark-circle-12-regular' : 'fluent:dismiss-circle-12-regular'" class="text-light" />
                     {{ clipboardMessage }}
-                    <Icon :name="isMailCopied ? 'fluent:checkmark-circle-12-regular' : 'fluent:dismiss-circle-12-regular'" class="filter-light" />
                   </p>
                 </DialogPanel>
               </TransitionChild>

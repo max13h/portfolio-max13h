@@ -6,7 +6,7 @@
     </h1>
     <div class="t-scrolldown absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center">
       <p>Scroll down !</p>
-      <Icon name="fluent:arrow-circle-down-12-filled" size="2rem" class="filter-dark"  />
+      <Icon name="fluent:arrow-circle-down-12-filled" size="2rem" class="text-dark"  />
     </div>
   </header>
 </template>

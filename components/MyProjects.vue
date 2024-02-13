@@ -60,7 +60,7 @@
                 >
                   <DialogPanel class="bg-dark rounded-2xl h-[90vh] w-[90vw] shadow-2xl shadow-dark/50 overflow-y-scroll flex flex-col">
                     <div class="w-full flex justify-end">
-                      <Icon name="fluent:dismiss-12-regular" size="1rem" class="filter-light mt-4 me-4" @click="closeModal" tabindex="2" />
+                      <Icon name="fluent:dismiss-12-regular" size="1rem" class="text-light mt-4 me-4" @click="closeModal" tabindex="2" />
                     </div>
                     <div class="flex-grow p-8 flex flex-col">
                       <DialogTitle as="h4" class="text-light text-big3 font-semibold leading-none">{{ project.name }}</DialogTitle>
@@ -79,7 +79,7 @@
                     </div>
                     <p v-if="project.images.length > 1" class="text-light w-full text-center lg:hidden">
                       Scroll
-                      <Icon name="fluent:arrow-right-12-regular" class="filter-light" />
+                      <Icon name="fluent:arrow-right-12-regular" class="text-light" />
                     </p>
                     <div ref="scroll" class="flex p-4" :class="{'overflow-x-scroll' : project.images.length > 1 }">
                       <NuxtLink
