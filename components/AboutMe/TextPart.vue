@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="t-group-mynameis text-end relative">
-      <p class="t-mynameis mix-blend-difference text-light inline-block text-big3 me-4">
+      <p ref="mynameis" class="t-mynameis mix-blend-difference text-light inline-block text-big3 me-4">
         My name is <br/>
         <span class="font-bold tracking-widst text-light" style="font-family: 'farnhamtext-regularlfregular';">Maxime</span>
       </p>
@@ -37,18 +37,22 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 const webdeveloperLetters = ref(null)
-
+const mynameis = ref()
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
   splitLettersInHTML(webdeveloperLetters, 't-webdeveloper-letters text-light')
+  mynameis.value.focus
 
   gsap.timeline({
     scrollTrigger: {
       trigger: '.t-group-mynameis',
       start: 'center 80%',
     },
-    autoRemoveChildren: true
+    autoRemoveChildren: true,
+    onComplete: () => {
+      mynameis.value.classList.add('no-translate3D')
+    }
   })
   .from('.t-mynameis', {
     duration: 2,

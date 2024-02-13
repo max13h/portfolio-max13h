@@ -107,3 +107,7 @@ body {
 .filter-dark {
   filter: brightness(0) saturate(100%) invert(2%) sepia(1%) saturate(6507%) hue-rotate(221deg) brightness(94%) contrast(92%);
 }
+
+.no-translate3D {
+  transform: translate3d(0, 0, 0)
+}
