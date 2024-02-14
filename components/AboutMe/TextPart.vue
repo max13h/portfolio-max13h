@@ -7,10 +7,12 @@
       </p>
       <div class="t-imageofme rounded-full overflow-hidden flex justify-center items-center absolute
         top-full md:top-2/3
-        left-2 sm:left-1/3
-        w-32 sm:w-40 md:w-48 lg:w-56 xl:w-64
-        h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64">
-        <NuxtImg src="/me.jpg" alt="Picture of max13h" sizes="128px sm:160px md:192px lg:224px xl:256px"></NuxtImg>
+        left-2 sm:left-[20%]
+        w-64 sm:w-72 md:w-80 lg:w-96 xl:w-[50vh]
+        h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[50vh]
+        bg-red-500
+      ">
+        <NuxtImg src="/me.jpg" alt="Picture of max13h" sizes="128px sm:160px md:192px lg:224px xl:256px" class="absolute inset-0 w-full h-full object-cover"></NuxtImg>
       </div>
     </div>
 
