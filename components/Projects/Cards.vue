@@ -15,7 +15,7 @@
     "
     @click="openModal(project.name)"
   >
-    <NuxtImg :src="project.mainImage" class="w-[150%] transition-all duration-500 blur-2xl group-hover:blur-0 group-hover:scale-105" />
+    <NuxtImg :src="project.mainImage" class="transition-all duration-500 blur-2xl group-hover:blur-0 group-hover:scale-105 absolute inset-0 w-full h-full object-cover" />
     <div class="transition-all duration-500 group-hover:bg-zinc-900 w-full h-full group-hover:h-0 bg-dark absolute bottom-0 left-0 opacity-50"></div>
     <h3 class="transition-all group-hover:scale-105 group-hover:opacity-0 w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-big5 text-light text-center ">{{ project.name }}</h3>
 
@@ -150,18 +150,18 @@ const projects = [
       },
     ],
     link: 'https://github.com/max13h/',
-    textLink: 'My github',
+    textLink: 'My github (not the project)',
     images: [
       'secretproject/logo_secretproject.png',
-      'secretproject/activity.png',
-      'secretproject/commits.png'
+      'secretproject/sign_in_screen.png',
+      'secretproject/database_schema.png',
     ],
   },
   {
     name: 'The Favorite',
     date: 'September 2023 - October 2023',
-    mainImage: 'https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/competition.png',
-    description: "The Favorite was my first team project. I led the development of the mobile web app in one month",
+    mainImage: 'https://raw.githubusercontent.com/max13h/the_favorite/8ad4723678a48ee37cd25e482f971d550fd8986e/app/assets/images/crown.svg',
+    description: "The Favorite offers a humorous take on the burden of parenthood. Parents work as a real team, while having fun competing against each other. \nThis project was a great first project to work on. I took the lead of our team of three over a one-month period, dedicating a significant amount of time to its success. We brought some excellent ideas and are really proud of the accomplished work. \nParticipating in this project during my bootcamp provided the opportunity to work in a full team project early in my career, contributing to a better understanding of the collaborative approach required for development projects.",
     stack: [
       {
         name: 'Ruby',
@@ -223,6 +223,7 @@ const projects = [
     link: 'https://github.com/max13h/the_favorite',
     textLink: 'Check the repo',
     images: [
+      "https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/logo.png",
       "https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/root.png",
       "https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/home_tasks.png",
       "https://raw.githubusercontent.com/max13h/the_favorite/master/app/assets/images/readme/home_events.png",
