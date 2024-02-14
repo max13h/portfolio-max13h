@@ -47,10 +47,10 @@
               leave-to="opacity-0 scale-95"
             >
               <DialogPanel class="bg-dark rounded-2xl h-[90vh] w-[90vw] shadow-2xl shadow-dark/50 overflow-y-scroll flex flex-col">
-                <div class="w-full flex justify-end">
-                  <Icon name="fluent:dismiss-12-regular" size="1rem" class="text-light mt-4 me-4" @click="closeModal" tabindex="2" />
+                <div class="w-full flex justify-end pt-8 pr-8">
+                  <Icon name="fluent:dismiss-12-regular" size="1rem" class="text-light" @click="closeModal" tabindex="2" />
                 </div>
-                <div class="p-8 sm:p-12 flex flex-col">
+                <div class="pl-8 pr-8 sm:pl-12   sm:pr-12 flex flex-col">
                   <DialogTitle as="h4" class="text-light text-big3 font-semibold leading-none">
                     {{ project.name }}
                   </DialogTitle>
@@ -63,18 +63,14 @@
                     </NuxtLink>
                   </div>
 
-                  <DialogDescription class="text-light my-8 lg:text-xl whitespace-pre-line ">{{ project.description }}</DialogDescription>
+                  <DialogDescription class="text-light mt-8 lg:text-xl whitespace-pre-line ">{{ project.description }}</DialogDescription>
 
                   <NuxtLink :to="project.link" target="_blank" tabindex="1" class="btn-light self-end my-8">
                     {{ project.textLink }}
                   </NuxtLink>
                 </div>
                 <div class="flex-shrink-0">
-                  <p v-if="project.images.length > 1" class="text-light w-full text-center lg:hidden">
-                    Scroll
-                    <Icon name="fluent:arrow-right-12-regular" class="text-light" />
-                  </p>
-                  <div class="flex p-4" :class="{'overflow-x-scroll' : project.images.length > 1 }">
+                  <div class="flex p-8" :class="{'overflow-x-scroll' : project.images.length > 1 }">
                     <NuxtLink
                       v-for="(image, imgIndex) in project.images" :key="imgIndex"
                       :to="image[0] == '/' ? actualURL + image : image"
