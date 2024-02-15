@@ -267,7 +267,7 @@ const projects = [
     name: 'Portfolio',
     date: 'February 2024',
     mainImage: 'https://raw.githubusercontent.com/max13h/portfolio-max13h/master/public/portfolio-max13h.png',
-    description: "This is the website you are currently on. \nI aimed for my portfolio to be creative, incorporating animations, transitions, and showcasing my proficiency in CSS and Javascript on a global aspects. \nIt took me nearly two weeks to complete it entirely, and I am proud to say that I love the result.",
+    description: "This is the website you are currently on. \nI aimed for my portfolio to be creative, incorporating animations, transitions, and showcasing my proficiency in CSS and Javascript on a global aspects. I learned a lot about multi browser support and responsive design. \nIt took me nearly two weeks to complete it entirely, and I am proud to say that I love the result.",
     stack: [
       {
         name: 'Nuxt',
