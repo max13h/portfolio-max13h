@@ -166,6 +166,6 @@ onMounted(() => {
   content: '';
   filter: var(--blur-land3);
   opacity: var(--opacity-land3);
-  @apply w-full h-full absolute top-1/2 left-0 bg-dark rounded-t-3xl xl:rounded-t-[3rem] -z-10
+  @apply w-full h-[48%] absolute bottom-0 left-0 bg-dark rounded-t-3xl xl:rounded-t-[3rem] -z-10
 }
 </style>
