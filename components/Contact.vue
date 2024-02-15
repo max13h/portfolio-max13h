@@ -17,7 +17,7 @@
 
     <div class="bg-dark h-[70vh]">
       <div class="flex flex-col sm:flex-row items-center justify-evenly h-full">
-        <NuxtLink to="https://www.linkedin.com/in/max13h/" target="_blank" class="w-fit">
+        <NuxtLink to="https://www.linkedin.com/in/max13h/" target="_blank" class="w-fit transition-transform duration-500 hover:scale-105">
           <Icon
             name="mdi:linkedin"
             size="16rem"
@@ -25,13 +25,11 @@
               t-contact-icons
               text-light
               w-32 sm:w-36 md:w-40 lg:w-48 xl:w-56
-              h-32 sm:h-36 md:h-4w-40 lg:h-48 xl:h-5w-56
-              hover:scale-105
-              transition-all duration-500"
+              h-32 sm:h-36 md:h-4w-40 lg:h-48 xl:h-5w-56"
             />
         </NuxtLink>
 
-        <NuxtLink to="mailto:contact@max13h.fr" class="w-fit">
+        <NuxtLink to="mailto:contact@max13h.fr" class="w-fit transition-transform duration-500 hover:scale-105">
           <Icon
             name="fluent:mail-48-filled"
             size="16rem"
@@ -39,9 +37,7 @@
               text-light
               t-contact-icons
               w-32 sm:w-36 md:w-40 lg:w-48 xl:w-56
-              h-32 sm:h-36 md:h-4w-40 lg:h-48 xl:h-5w-56
-              hover:scale-105
-              transition-all duration-500"
+              h-32 sm:h-36 md:h-4w-40 lg:h-48 xl:h-5w-56"
               @click="copyContent"
             />
         </NuxtLink>
