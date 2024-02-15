@@ -71,6 +71,6 @@ onMounted(() => {
 <style scoped>
 .t-group-dicoverprojects:after {
   content: '';
-  @apply bg-dark absolute top-0 left-0 rounded-b-3xl w-full h-[26%] -z-10 lg:h-[80%]
+  @apply bg-dark absolute top-0 left-0 rounded-b-3xl w-full h-[81%] -z-10 lg:h-[81%]
 }
 </style>
