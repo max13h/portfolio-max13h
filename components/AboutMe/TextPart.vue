@@ -10,7 +10,6 @@
         left-2 sm:left-[20%]
         w-64 sm:w-72 md:w-80 lg:w-96 xl:w-[50vh]
         h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[50vh]
-        bg-red-500
       ">
         <NuxtImg src="/me.jpg" alt="Picture of max13h" sizes="128px sm:160px md:192px lg:224px xl:256px" class="absolute inset-0 w-full h-full object-cover"></NuxtImg>
       </div>
