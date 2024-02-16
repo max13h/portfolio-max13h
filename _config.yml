@@ -1,0 +1,3 @@
+domain: max13h.github.io/       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+url: https://max13h.github.io/  # the base hostname and protocol for your site, e.g. http://example.com
+baseurl: /portfolio-max13h/      # place folder name if the site is served in a subfolder
