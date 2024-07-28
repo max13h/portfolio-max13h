@@ -39,7 +39,7 @@ jobs:
       - name: Install dependencies
         run: pnpm i
       - name: Static HTML export with Nuxt
-        run: pnpm dlx nuxi generate
+        run: pnpm generate
 
   # Deployment job
   deploy:
