@@ -8,7 +8,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "build": "nuxt build --preset github_pages",
-    "start": "node .output/server/index.mjs",
+    "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.11.2",
