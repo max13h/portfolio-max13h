@@ -23,9 +23,9 @@
         - run: pnpm i
         - run: pnpm build
         - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./.output/public
+          uses: actions/upload-pages-artifact@v1
+          with:
+            path: ./.output/public
 
         # Deployment job
     deploy:
