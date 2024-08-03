@@ -1,6 +1,6 @@
 <template>
   <header id="welcome" class="t-welcome relative h-screen flex justify-center items-center">
-    <h1 class="text-big1 flex flex-col items-center leading-[1._]">
+    <h1 class="text-big1 flex flex-col items-center leading-[1.5]">
       <span :ref="letters[0]">Hello, I'm </span>
       <span class="t-max13h relative flex flex-col items-center leading-[0.9]">
         <span :ref="letters[1]">Maxime</span>
