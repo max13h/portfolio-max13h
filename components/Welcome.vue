@@ -1,8 +1,11 @@
 <template>
   <header id="welcome" class="t-welcome relative h-screen flex justify-center items-center">
-    <h1 class="text-big1 flex flex-col items-center">
+    <h1 class="text-big1 flex flex-col items-center leading-[1._]">
       <span :ref="letters[0]">Hello, I'm </span>
-      <span :ref="letters[1]" class="t-max13h relative w-full text-center">max13h</span>
+      <span class="t-max13h relative flex flex-col items-center leading-[0.9]">
+        <span :ref="letters[1]">Maxime</span>
+        <span :ref="letters[2]">Hmae</span>
+      </span>
     </h1>
     <div class="t-scrolldown absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center">
       <p>Scroll down !</p>
@@ -16,7 +19,7 @@ import { gsap } from "gsap"
 import { CustomEase } from "gsap/CustomEase"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
-const letters = [ref(), ref()]
+const letters = [ref(), ref(), ref()]
 const gsapStore = useGsapStore()
 const lenisStore = useLenisStore()
 
@@ -134,7 +137,7 @@ onMounted(() => {
   left: 50%;
   transform: translateX(-50%);
   border-radius: 100%;
-  width: calc(7rem + 50vw);
+  width: calc(10rem + 50vw);
   height: calc(7rem + 50vw);
   @apply bg-light
 }
