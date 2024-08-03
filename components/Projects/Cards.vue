@@ -161,8 +161,8 @@ const projects = [
     textLink: 'My github (not the project)',
     images: [
       'secretproject/logo_secretproject.png',
-      'secretproject/sign_in_screen.png',
-      'secretproject/database_schema.png',
+      'https://raw.githubusercontent.com/max13h/portfolio-2024/master/public/secretproject/sign_in_screen.png',
+      'https://raw.githubusercontent.com/max13h/portfolio-2024/master/public/secretproject/database_schema.png',
     ],
   },
   {
