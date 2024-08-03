@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-dark w-full text-center text-light text-base">
+  <footer class="bg-dark w-full text-center text-light text-xs">
     {{ new Date().getFullYear() }} - Portfolio
     <NuxtLink to="https://github.com/max13h/" target="_blank" class="inline-flex items-center text-light">
       max13h

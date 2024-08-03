@@ -17,7 +17,7 @@
 
     <div class="bg-dark h-[70vh]">
       <div class="flex flex-col sm:flex-row items-center justify-evenly h-full">
-        <NuxtLink to="https://www.linkedin.com/in/max13h/" target="_blank" class="w-fit transition-transform duration-500 hover:scale-105">
+        <NuxtLink to="https://www.linkedin.com/in/hmae/" target="_blank" class="w-fit transition-transform duration-500 hover:scale-105">
           <Icon
             name="mdi:linkedin"
             size="16rem"
@@ -29,7 +29,7 @@
             />
         </NuxtLink>
 
-        <NuxtLink to="mailto:contact@max13h.fr" class="w-fit transition-transform duration-500 hover:scale-105">
+        <NuxtLink to="mailto:contact@hmae.fr" class="w-fit transition-transform duration-500 hover:scale-105">
           <Icon
             name="fluent:mail-48-filled"
             size="16rem"
@@ -70,17 +70,17 @@
                 leave-to="opacity-0 scale-95"
               >
                 <DialogPanel class="bg-light p-8 rounded-2xl shadow-2xl shadow-light/50">
-                  <div v-if="isMailCopied" class="text-dark">
-                    <Icon name="fluent:checkmark-circle-12-regular" class="text-dark" size="2rem" />
+                  <div v-if="isMailCopied" class="text-dark flex items-center gap-2">
+                    <Icon name="fluent:checkmark-circle-12-regular" class="text-dark" size="1.3rem" />
                     Email copied to clipboard !
                   </div>
                   <div v-else class="text-dark flex flex-col items-center">
-                    <p class="flex items-center mb-4">
-                      <Icon name="fluent:dismiss-circle-12-regular" class="text-dark me-2" size="1.5rem" />
+                    <p class="flex items-center mb-4 gap-2">
+                      <Icon name="fluent:dismiss-circle-12-regular" class="text-dark me-2" size="1.3rem" />
                       An error occures.
                     </p>
                     <p>Please copy my email:</p>
-                    <p class="font-bold mt-2">contact@max13h.fr</p>
+                    <p class="font-bold mt-2">contact@hmae.fr</p>
                   </div>
                 </DialogPanel>
               </TransitionChild>
@@ -104,7 +104,7 @@ const copyContent = async () => {
   modalOpened.value = true
 
   try {
-    await navigator.clipboard.writeText('contact@max13h.fr');
+    await navigator.clipboard.writeText('contact@hmae.fr');
     isMailCopied.value = true
 
   } catch (err) {
