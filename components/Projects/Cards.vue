@@ -314,8 +314,8 @@ const projects = [
     textLink: 'Check the repo',
     images: [
       'portfolio/portfolio-max13h.png',
-      'portfolio/proficiency.png',
-      'portfolio/projects.png'
+      'https://raw.githubusercontent.com/max13h/portfolio-2024/master/public/portfolio/proficiency.png',
+      'https://raw.githubusercontent.com/max13h/portfolio-2024/master/public/portfolio/projects.png'
     ],
   }
 ]
